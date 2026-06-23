@@ -1,0 +1,2500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter — Begin Yours | Reading Engagement Platform</title>
+  <meta name="description" content="Chapter provides universities and educators with real-time aggregate student reading comprehension data to close the learning gap.">
+  <style>
+/* -------------------------------------------------------------
+   CHAPTER READING LLC - STYLESHEET (V3)
+   Design System: Luxury Editorial Tech (Visual Overhaul)
+   ------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green-dark:  #1a5c38;
+  --green-mid:   #2d7a52;
+  --green-light: #3daa72;
+  --green-pale:  #e8f5ee;
+  --white:       #ffffff;
+  --off-white:   #f8faf9;
+  --ink:         #0d1f16;
+  --slate:       #3a4d42;
+  --muted:       #7a9085;
+  --rule:        rgba(26,92,56,0.12);
+  --rule-light:  rgba(26,92,56,0.06);
+  --shadow-sm:   0 4px 12px rgba(13,31,22,0.03);
+  --shadow-md:   0 16px 40px rgba(13,31,22,0.06);
+  --shadow-lg:   0 30px 80px rgba(13,31,22,0.1);
+  --transition:  all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+/* -------------------------------------------------------------
+   TYPOGRAPHY & HEADERS
+   ------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+em, .italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--green-mid);
+}
+
+.section-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.01em;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--slate);
+  max-width: 580px;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------
+   BUTTONS
+   ------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.4rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--green-dark);
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(26,92,56,0.12);
+}
+
+.btn-primary:hover {
+  background: var(--green-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(26,92,56,0.2);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--green-dark);
+  border: 1px solid var(--green-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--green-pale);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 4px;
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.btn-hero-light {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-hero-light:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+   NAVIGATION
+   ------------------------------------------------------------- */
+.nav-wrapper {
+  position: fixed;
+  top: 1.5rem;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2.5rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow-sm);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nav-wrapper.scrolled {
+  top: 0;
+}
+.nav-wrapper.scrolled .nav-container {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background: rgba(255, 255, 255, 0.96);
+  max-width: 100%;
+}
+
+.nav-logo img {
+  height: 30px;
+  width: auto;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  text-decoration: none;
+  position: relative;
+  padding: 0.3rem 0;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--green-dark);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--green-dark);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta-btn {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--green-dark);
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.nav-cta-btn:hover {
+  background: var(--green-mid);
+  transform: translateY(-1px);
+}
+
+/* -------------------------------------------------------------
+   HERO SECTION (ELEGANT EDITORIAL GRID)
+   ------------------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 11rem 0 6rem;
+  background-color: var(--off-white);
+  background-image: 
+    radial-gradient(circle at top right, rgba(45,122,82,0.06) 0%, transparent 60%),
+    linear-gradient(rgba(26,92,56,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,92,56,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  position: relative;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-left {
+  position: relative;
+}
+
+.hero-left h1 {
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  color: var(--ink);
+  line-height: 1.05;
+  margin-bottom: 2rem;
+}
+
+.hero-left h1 em {
+  color: var(--green-dark);
+  font-style: italic;
+}
+
+.hero-left .hero-sub {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--slate);
+  line-height: 1.8;
+  margin-bottom: 3.5rem;
+  max-width: 520px;
+}
+
+.hero-left .hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Simulated macOS browser mockup window */
+.hero-mockup-wrap {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--rule);
+  padding: 0 0.5rem 0.5rem;
+  position: relative;
+  transform: rotateY(-8deg) rotateX(4deg) rotateZ(1deg);
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
+}
+
+.hero-mockup-wrap:hover {
+  transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateY(-8px);
+  box-shadow: 0 45px 95px rgba(13,31,22,0.14);
+}
+
+.mockup-browser-header {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 0.4rem;
+}
+
+.mockup-browser-header .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mockup-browser-header .dot.red { background: #ff5f56; }
+.mockup-browser-header .dot.yellow { background: #ffbd2e; }
+.mockup-browser-header .dot.green { background: #27c93f; }
+
+.hero-mockup-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  border: 1px solid rgba(13,31,22,0.05);
+}
+
+.hero-float-card {
+  position: absolute;
+  bottom: -2rem;
+  right: -1.5rem;
+  background: var(--ink);
+  color: var(--white);
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: rotate(-2deg);
+  transition: var(--transition);
+  z-index: 15;
+}
+
+.hero-float-card:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.hero-float-card .badge-title {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 0.2rem;
+}
+
+.hero-float-card .badge-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.hero-float-card .badge-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.1rem;
+}
+
+/* -------------------------------------------------------------
+   STATS BAND
+   ------------------------------------------------------------- */
+.stats-band {
+  background: var(--ink);
+  color: var(--white);
+  padding: 7rem 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.stats-intro {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 4rem;
+}
+
+.stats-intro .section-eyebrow {
+  color: var(--green-light);
+}
+.stats-intro .section-eyebrow::before {
+  background: var(--green-light);
+}
+
+.stats-intro h2 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3rem 2.2rem;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  border-color: var(--green-light);
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 7vw, 5.5rem);
+  font-weight: 300;
+  color: var(--green-light);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+
+.stat-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+}
+
+.stats-footnotes {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.stats-footnotes p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------
+   STICKY TIMELINE PROCESS
+   ------------------------------------------------------------- */
+.process {
+  padding: 10rem 0;
+  background: var(--white);
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 6rem;
+}
+
+.process-sticky-left {
+  position: sticky;
+  top: 9rem;
+  height: fit-content;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+/* Timeline vertical line */
+.process-steps::before {
+  content: '';
+  position: absolute;
+  left: 0.6rem;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  width: 1px;
+  background: var(--rule);
+}
+
+.process-step {
+  position: relative;
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid var(--rule-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: -2.3rem;
+  top: 3.8rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--muted);
+  border: 2px solid var(--white);
+  transition: var(--transition);
+  z-index: 5;
+}
+
+.process-step:hover {
+  border-color: var(--green-mid);
+  box-shadow: var(--shadow-md);
+  background: var(--off-white);
+}
+
+.process-step:hover::before {
+  background: var(--green-dark);
+  transform: scale(1.4);
+}
+
+.process-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(26,92,56,0.12);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.process-step h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.process-step p {
+  font-size: 0.95rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------
+   THE PLATFORM - INTERACTIVE ZOOM TOUR
+   ------------------------------------------------------------- */
+.platform {
+  background: var(--off-white);
+  padding: 10rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.platform-layout {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.tour-menu-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tour-menu-item {
+  background: var(--white);
+  border: 2px solid var(--rule-light);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.tour-menu-item:hover {
+  border-color: rgba(26,92,56,0.15);
+  box-shadow: var(--shadow-sm);
+}
+
+.tour-menu-item.active {
+  border-color: var(--green-dark);
+  box-shadow: var(--shadow-md);
+  background: var(--white);
+}
+
+.tour-menu-item .tour-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.tour-menu-item.active .tour-num {
+  color: var(--green-mid);
+}
+
+.tour-menu-item h3 {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.tour-menu-item p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  display: none; /* Collapsed by default */
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.tour-menu-item.active p {
+  display: block; /* Visible when active */
+  color: var(--slate);
+}
+
+/* Screen mockup container with viewport masking */
+.tour-screen-wrap {
+  position: relative;
+  background: var(--white);
+  padding: 0.8rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+
+.tour-viewport {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.tour-mockup-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.4s ease;
+  transform-origin: center center;
+}
+
+/* Dynamic zoom classes applied via script.js */
+.zoom-state-0 {
+  transform: scale(1) translate(0%, 0%);
+}
+.zoom-state-1 {
+  /* Zooms into active margin annotation area (student mockup) */
+  transform: scale(1.6) translate(14%, 10%);
+}
+.zoom-state-2 {
+  /* Zooms into aggregation analytics details (professor mockup) */
+  transform: scale(1.7) translate(-14%, 14%);
+}
+
+/* -------------------------------------------------------------
+   INTERACTIVE DATA IMPACT CALCULATOR
+   ------------------------------------------------------------- */
+.roi-section {
+  padding: 10rem 0;
+  background: var(--white);
+}
+
+.roi-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.roi-widget-card {
+  background: var(--off-white);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 4rem 3.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.roi-title-widget {
+  font-size: 1.7rem;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+}
+
+.roi-control-group {
+  margin-bottom: 3rem;
+}
+
+.roi-label-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 1rem;
+}
+
+.roi-val-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--green-dark);
+}
+
+.roi-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(26,92,56,0.1);
+  outline: none;
+}
+
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--green-dark);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  background: var(--green-mid);
+}
+
+.roi-outputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.roi-out-card {
+  background: var(--white);
+  border: 1px solid var(--rule-light);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.roi-out-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.roi-out-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/* -------------------------------------------------------------
+   EDITORIAL QUOTE SECTION
+   ------------------------------------------------------------- */
+.quote-banner {
+  background: var(--off-white);
+  padding: 8rem 0;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.quote-banner blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  color: var(--ink);
+  max-width: 960px;
+  margin: 0 auto;
+  line-height: 1.35;
+  position: relative;
+}
+
+.quote-banner .quote-icon {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10rem;
+  color: var(--green-pale);
+  line-height: 0;
+  display: block;
+  height: 2rem;
+}
+
+.quote-banner .quote-open {
+  margin-bottom: 3.5rem;
+}
+
+.quote-banner .quote-author {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  display: block;
+}
+
+/* -------------------------------------------------------------
+   ABOUT & STORY Collage
+   ------------------------------------------------------------- */
+.about {
+  background: var(--white);
+  padding: 10rem 0;
+}
+
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 7rem;
+  align-items: center;
+  margin-bottom: 9rem;
+}
+
+.about-photo-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.about-photo-wrapper img {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--rule);
+}
+
+.about-frame-accent {
+  position: absolute;
+  top: -1.5rem;
+  left: -1.5rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: -1;
+  background: var(--green-pale);
+  transform: rotate(-1.5deg);
+}
+
+.about-badge {
+  position: absolute;
+  bottom: -1rem;
+  right: 1.5rem;
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+}
+
+.about-editorial-text p {
+  font-size: 1.02rem;
+  color: var(--slate);
+  margin-bottom: 1.8rem;
+  line-height: 1.85;
+}
+
+.about-founder-meta {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.founder-signature {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--green-dark);
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+  letter-spacing: normal;
+}
+
+.founder-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+/* Origin block */
+.about-origin {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 7rem;
+  align-items: center;
+  padding-top: 8rem;
+  border-top: 1px solid var(--rule);
+}
+
+.about-origin-photo {
+  position: relative;
+}
+
+.about-origin-photo img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--rule);
+  display: block;
+}
+
+.about-origin-caption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.about-origin-text h3 {
+  font-size: 2.4rem;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+
+.about-origin-text p {
+  font-size: 0.98rem;
+  color: var(--slate);
+  margin-bottom: 1.8rem;
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------
+   TEAM BENTO GRID REDESIGN
+   ------------------------------------------------------------- */
+.team {
+  background: var(--off-white);
+  padding: 10rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.team-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--green-mid);
+}
+
+/* Bento Spans */
+.bento-span-2 {
+  grid-column: span 2;
+  flex-direction: row;
+}
+
+.bento-span-2 .team-photo {
+  width: 42%;
+  aspect-ratio: auto;
+}
+
+.bento-span-2 .team-body {
+  width: 58%;
+}
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--off-white);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: var(--transition);
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.05);
+}
+
+.team-body {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.team-name {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.team-role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 1.2rem;
+}
+
+.team-bio {
+  font-size: 0.88rem;
+  color: var(--slate);
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.team-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  width: 100%;
+  transition: color 0.2s;
+  margin-top: auto;
+}
+
+.team-linkedin svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.team-linkedin:hover {
+  color: var(--green-dark);
+}
+
+.team-linkedin:hover svg {
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------
+   CTA IMMERSIVE BAND
+   ------------------------------------------------------------- */
+.cta-band {
+  background: var(--green-pale);
+  padding: 9rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 70vw;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(45,122,82,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-content {
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.cta-content h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+  font-size: 1.05rem;
+  color: var(--slate);
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------
+   FOOTER
+   ------------------------------------------------------------- */
+footer {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 7rem 0 3.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 3.5rem;
+}
+
+.footer-logo-badge {
+  background: var(--white);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo-badge img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+.footer-tagline {
+  font-size: 0.92rem;
+  max-width: 280px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.footer-col-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 1.8rem;
+}
+
+.footer-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.footer-menu a {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-menu a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Footer Social Icons */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer-social a {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  border-color: var(--white);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.footer-social svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.footer-bottom-links a {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--green-light);
+}
+
+/* -------------------------------------------------------------
+   SCROLL REVEAL
+   ------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* -------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding: 9rem 0 4rem;
+  }
+  
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .hero-right {
+    order: -1;
+  }
+  
+  .hero-mockup-wrap {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .stats-intro {
+    border-right: none;
+    padding-right: 0;
+  }
+  
+  .process-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .process-sticky-left {
+    position: static;
+  }
+  
+  .platform-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .roi-layout {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .about-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  
+  .about-origin {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  
+  .team-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-span-2 {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+  
+  .bento-span-2 .team-photo {
+    width: 100%;
+  }
+
+  .bento-span-2 .team-body {
+    width: 100%;
+  }
+  
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.8rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .nav-container {
+    padding: 0.8rem 1.8rem;
+  }
+  
+  .stats-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .roi-widget-card {
+    padding: 3rem 2rem;
+  }
+  
+  .roi-outputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-col-left h1 {
+    font-size: 3.4rem;
+  }
+  
+  .hero-float-card {
+    right: 1.5rem;
+    bottom: -2rem;
+  }
+  
+  .footer-links-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* -------------------------------------------------------------
+   VERSION 4 POLISHED FEATURES (HOTSPOTS, BADGES, FAQs, HOVERS)
+   ------------------------------------------------------------- */
+
+/* Button Micro-Animations */
+.btn-primary span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-primary span::after {
+  content: '→';
+  font-family: 'DM Sans', sans-serif;
+  transition: var(--transition-fast);
+  transform: translateX(0);
+  display: inline-block;
+}
+.btn-primary:hover span::after {
+  transform: translateX(4px);
+}
+
+/* Interactive Mockup Hotspots */
+.hotspot-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hotspot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--green-light);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 0 10px rgba(61,170,114,0.5);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: scale(0.6);
+  z-index: 25;
+}
+
+.hotspot.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hotspot::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--green-light);
+  animation: hotspotPulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes hotspotPulse {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Glassmorphic Tooltips */
+.hotspot-tooltip {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(13,31,22,0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  width: 220px;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition);
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  line-height: 1.4;
+  z-index: 100;
+}
+
+.hotspot:hover .hotspot-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(13,31,22,0.94) transparent transparent transparent;
+}
+
+/* Trust Badges */
+.trust-badges-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3.5rem;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule);
+  padding-top: 2.5rem;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--off-white);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--slate);
+  transition: var(--transition-fast);
+}
+
+.trust-badge:hover {
+  background: var(--green-pale);
+  border-color: var(--green-mid);
+  color: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.trust-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--green-dark);
+  fill: none;
+  stroke-width: 2;
+  transition: var(--transition-fast);
+}
+
+/* Accordion FAQs */
+.faq {
+  padding: 10rem 0;
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+}
+
+.faq-layout {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.faq-item {
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--off-white);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item:hover {
+  border-color: var(--green-mid);
+}
+
+.faq-header {
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-header h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.faq-icon-indicator {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  transition: transform 0.4s var(--transition);
+  flex-shrink: 0;
+}
+
+.faq-icon-indicator::before, .faq-icon-indicator::after {
+  content: '';
+  position: absolute;
+  background: var(--green-dark);
+  transition: var(--transition);
+}
+
+.faq-icon-indicator::before {
+  top: 8px;
+  left: 1px;
+  width: 16px;
+  height: 2px;
+}
+
+.faq-icon-indicator::after {
+  top: 1px;
+  left: 8px;
+  width: 2px;
+  height: 16px;
+}
+
+.faq-item.active .faq-icon-indicator {
+  transform: rotate(45deg);
+}
+
+.faq-item.active .faq-icon-indicator::after {
+  opacity: 0;
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-content {
+  padding: 0 2.2rem 1.8rem;
+  font-size: 0.95rem;
+  color: var(--slate);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .trust-badges-row {
+    gap: 1rem;
+  }
+  .faq-header {
+    padding: 1.5rem 1.8rem;
+  }
+  .faq-content {
+    padding: 0 1.8rem 1.5rem;
+  }
+}
+
+/* Glowing Background Orbs */
+.glowing-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 1;
+  pointer-events: none;
+  animation: floatOrb 20s infinite alternate ease-in-out;
+}
+
+.orb-1 {
+  top: 15vh;
+  right: -10vw;
+  width: 450px;
+  height: 450px;
+  background: rgba(61, 170, 114, 0.08);
+}
+
+.orb-2 {
+  top: 60vh;
+  left: -15vw;
+  width: 500px;
+  height: 500px;
+  background: rgba(232, 245, 238, 0.6);
+  animation-delay: -5s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 60px) scale(1.15); }
+}
+
+/* Alignment Editorial Crosshairs (+) */
+.crosshair {
+  position: absolute;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--green-mid);
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+
+.crosshair-tl { top: 1.5rem; left: 1.5rem; }
+.crosshair-tr { top: 1.5rem; right: 1.5rem; }
+.crosshair-bl { bottom: 1.5rem; left: 1.5rem; }
+.crosshair-br { bottom: 1.5rem; right: 1.5rem; }
+
+/* Apply position relative to grid containers for crosshair placement */
+.hero, .stats-band, .process, .platform, .roi-section, .about, .team {
+  position: relative;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Glowing Background Orbs -->
+  <div class="glowing-orb orb-1"></div>
+  <div class="glowing-orb orb-2"></div>
+
+  <!-- NAVIGATION -->
+  <header class="nav-wrapper" id="navbar">
+    <div class="container">
+      <nav class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="assets/logo.jpeg" alt="Chapter Logo">
+        </a>
+        <ul class="nav-links">
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#product">Platform</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Team</a></li>
+        </ul>
+        <a href="https://calendly.com/contactlarryjr" target="_blank" class="nav-cta-btn">Request Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="crosshair crosshair-tl">+</div>
+      <div class="crosshair crosshair-tr">+</div>
+      <div class="container hero-grid">
+        <div class="hero-left reveal">
+          <div class="hero-eyebrow">Reading Engagement Platform</div>
+          <h1><em>Chapter:</em><br>Begin yours.</h1>
+          <p class="hero-sub">Chapter gives educators the data they need to understand what students actually comprehend from their readings, and gives students the tools to engage more deeply with the material.</p>
+          <div class="hero-actions">
+            <a href="#how" class="btn btn-primary">
+              <span>See How It Works</span>
+            </a>
+            <a href="#product" class="btn btn-secondary">View Platform</a>
+          </div>
+        </div>
+        
+        <div class="hero-right reveal" style="transition-delay: 100ms;">
+          <div class="hero-mockup-wrap">
+            <div class="mockup-browser-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <img src="assets/hero_screen.jpeg" alt="Chapter Student reading interface mock dashboard">
+            <div class="hero-float-card">
+              <div class="badge-title">Our Platform</div>
+              <div class="badge-value">92%</div>
+              <div class="badge-sub">Avg. Engagement Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAND -->
+    <div class="stats-band">
+      <div class="container stats-grid">
+        <div class="stats-intro reveal">
+          <div class="section-eyebrow">The Problem by the numbers</div>
+          <h2>The gap between assigned readings and student completion.</h2>
+        </div>
+        <div class="stats-cards">
+          <div class="stat-card reveal" style="transition-delay: 100ms;">
+            <div class="stat-num">70%</div>
+            <div class="stat-desc">of undergraduates do not complete their assigned readings</div>
+          </div>
+          <div class="stat-card reveal" style="transition-delay: 200ms;">
+            <div class="stat-num">6%</div>
+            <div class="stat-desc">accuracy rate educators have when judging student reading comprehension</div>
+          </div>
+        </div>
+      </div>
+      <div class="container stats-footnotes reveal">
+        <p>¹ Inside Higher Ed: "over 70% of students admitted they don't do the assigned readings for class." 2024</p>
+        <p>² Engelen, J. A. A., Camp, G., van de Pol, J., &amp; de Bruin, A. B. H. (2018).</p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS (STICKY PROCESS TIMELINE) -->
+    <section class="process" id="how">
+      <div class="crosshair crosshair-tl">+</div>
+      <div class="crosshair crosshair-tr">+</div>
+      <div class="container process-layout">
+        <div class="process-sticky-left reveal">
+          <div class="section-eyebrow">How It Works</div>
+          <h2 class="section-title">Simple to use.<br>Serious in depth.</h2>
+          <p class="section-desc">Chapter is a dedicated reading platform built for academic institutions. Students engage with assigned readings using purpose-built tools. Those interactions become actionable data for educators.</p>
+        </div>
+        
+        <div class="process-steps">
+          <div class="process-step reveal" style="transition-delay: 100ms;">
+            <span class="process-num">01</span>
+            <h3>Upload &amp; Set Objectives</h3>
+            <p>Professors upload texts and define the learning objectives they expect students to meet, setting a clear benchmark before any reading begins.</p>
+          </div>
+          <div class="process-step reveal" style="transition-delay: 200ms;">
+            <span class="process-num">02</span>
+            <h3>Students Read &amp; Engage</h3>
+            <p>Students read within Chapter's clean interface, highlighting, annotating, and using reading tools. Every interaction is tracked: time spent, scroll depth, notes taken, re-reads.</p>
+          </div>
+          <div class="process-step reveal" style="transition-delay: 300ms;">
+            <span class="process-num">03</span>
+            <h3>Professors Receive Insights</h3>
+            <p>Instructors receive aggregate analytics showing how their class engaged with each reading. No individual surveillance. Just the insight needed to understand comprehension gaps and improve instruction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATFORM TOUR (INTERACTIVE ZOOM TOUR) -->
+    <section class="platform" id="product">
+      <div class="crosshair crosshair-tl">+</div>
+      <div class="crosshair crosshair-tr">+</div>
+      <div class="container">
+        <div class="platform-header reveal">
+          <div class="section-eyebrow">The Platform</div>
+          <h2 class="section-title">Built for every stakeholder</h2>
+          <p class="section-desc">Click each feature below to explore a live showcase of our reading environment and analytics dashboards.</p>
+        </div>
+
+        <div class="platform-layout">
+          <!-- Tour Menu Selection -->
+          <div class="tour-menu-wrap reveal">
+            <div class="tour-menu-item active" data-tour="0" data-img="assets/student_view.jpeg">
+              <span class="tour-num">Feature 01</span>
+              <h3>Clutter-Free Reader</h3>
+              <p>A focused, clean reading environment designed to minimize cognitive load. Students engage directly with margin tools while distractions are kept out of sight.</p>
+            </div>
+            
+            <div class="tour-menu-item" data-tour="1" data-img="assets/student_view.jpeg">
+              <span class="tour-num">Feature 02</span>
+              <h3>Active Annotations</h3>
+              <p>Highlights, margin comments, and student reading milestones are logged in context. These metrics sync silently to populate aggregate datasets.</p>
+            </div>
+            
+            <div class="tour-menu-item" data-tour="2" data-img="assets/professor_view.jpeg">
+              <span class="tour-num">Feature 03</span>
+              <h3>Professor Analytics</h3>
+              <p>Instructors track class progress maps, time-on-page stats, and paragraph highlights. Spot comprehension gaps instantly before class begins.</p>
+            </div>
+          </div>
+
+          <!-- Zooming Screen Viewport -->
+          <div class="tour-screen-wrap reveal" style="transition-delay: 200ms;">
+            <div class="tour-viewport">
+              <div class="hotspot-container">
+                <!-- Feature 01 hotspot -->
+                <div class="hotspot active" id="hotspot-feature-0" style="top: 61%; left: 61%;">
+                  <div class="hotspot-tooltip font-sans">
+                    <strong>Focused Reader Layout</strong><br>Optimized margin padding offsets elements for maximum reading endurance.
+                  </div>
+                </div>
+                <!-- Feature 02 hotspot -->
+                <div class="hotspot" id="hotspot-feature-1" style="top: 70%; left: 84%;">
+                  <div class="hotspot-tooltip font-sans">
+                    <strong>Active Highlights</strong><br>Students log highlights and select tags contextual to their reading targets.
+                  </div>
+                </div>
+                <!-- Feature 03 hotspot -->
+                <div class="hotspot" id="hotspot-feature-2" style="top: 74%; left: 74%;">
+                  <div class="hotspot-tooltip font-sans">
+                    <strong>Comprehension Heatmap</strong><br>Aggregates sentence-by-sentence reading times to isolate study gaps.
+                  </div>
+                </div>
+              </div>
+              <img id="tour-mockup-img" src="assets/student_view.jpeg" alt="Chapter Student reading interface" class="tour-mockup-img zoom-state-0">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDITORIAL QUOTE BANNER -->
+    <div class="quote-banner reveal">
+      <div class="container">
+        <span class="quote-icon quote-open">“</span>
+        <blockquote>
+          Chapter is not built to replace thinking. It is built to deepen it.
+          <span class="quote-author">L. B. Harper III &mdash; Founder, Chapter Reading LLC</span>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- COMPREHENSION IMPACT CALCULATOR -->
+    <section class="roi-section">
+      <div class="container roi-layout">
+        <div class="roi-text reveal">
+          <div class="section-eyebrow">Data Impact Calculator</div>
+          <h2 class="section-title">See the reading insights you're missing</h2>
+          <p class="section-desc">Depending on your class size, students generate thousands of engagement metrics. Without Chapter, this crucial learning data goes completely uncaptured, leaving you in the dark about student comprehension.</p>
+          <a href="https://calendly.com/contactlarryjr" target="_blank" class="btn btn-primary">
+            <span>Unlock Classroom Insights</span>
+          </a>
+        </div>
+        
+        <div class="roi-widget-card reveal" style="transition-delay: 200ms;">
+          <h3 class="roi-title-widget">Interactive Estimate</h3>
+          <div class="roi-control-group">
+            <div class="roi-label-flex">
+              <span>Class Size</span>
+              <span class="roi-val-display" id="class-size-display font-sans">45 Students</span>
+            </div>
+            <input type="range" class="roi-slider" id="class-size-slider" min="15" max="300" value="45">
+          </div>
+          
+          <div class="roi-outputs">
+            <div class="roi-out-card">
+              <div class="roi-out-label font-sans">Monthly Data Points</div>
+              <div class="roi-out-val" id="monthly-points">16,200</div>
+            </div>
+            <div class="roi-out-card">
+              <div class="roi-out-label font-sans">Unseen Reading Hours</div>
+              <div class="roi-out-val" id="unseen-hours">540 Hrs</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="trust-badges-row">
+          <div class="trust-badge font-sans">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            FERPA Compliant
+          </div>
+          <div class="trust-badge font-sans">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Canvas Integrated
+          </div>
+          <div class="trust-badge font-sans">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Blackboard Sync
+          </div>
+          <div class="trust-badge font-sans">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            LTI 1.3 Certified
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION (EDITORIAL) -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-editorial-grid">
+          <div class="about-photo-wrapper reveal">
+            <div class="about-frame-accent"></div>
+            <img src="assets/larry_harper.jpeg" alt="L. B. Harper III Portrait">
+            <div class="about-badge">Founder &amp; Manager</div>
+          </div>
+          
+          <div class="about-editorial-text reveal" style="transition-delay: 200ms;">
+            <div class="section-eyebrow">About Chapter</div>
+            <h2 class="section-title">One thing,<br>done exceptionally well</h2>
+            <p>Chapter Reading LLC was founded on a straightforward conviction: the most valuable thing a reading platform can offer universities is not content delivery – it's meaningful data about whether students are actually learning.</p>
+            <p>We do one thing exceptionally well: capturing and presenting aggregate classroom-level comprehension data that helps professors teach better. That singular focus, forged from experience inside university classrooms, drives every product decision we make.</p>
+            <p>Chapter is not built to replace thinking. It is built to deepen it.</p>
+            
+            <div class="about-founder-meta">
+              <div class="founder-signature">L. B. Harper III</div>
+              <div class="founder-title">Founder &amp; Manager, Chapter Reading LLC</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-origin">
+          <div class="about-origin-text reveal">
+            <div class="section-eyebrow">Our Story</div>
+            <h3 class="about-origin-title">Where it all began</h3>
+            <p>Chapter began not as a business idea, but as a personal solution. I originally set out to build a reading platform for my mother – something that would make reading feel less overwhelming and more accessible, while still preserving the value of truly engaging with a text.</p>
+            <p>That initial intention shaped everything. Instead of creating a tool that shortcuts reading, Chapter was designed to support it – to guide, clarify, and encourage deeper interaction with material.</p>
+            <p>What started as an effort to help one person read better evolved into a platform built to help anyone approach reading with confidence, structure, and purpose.</p>
+          </div>
+          <div class="about-origin-photo reveal" style="transition-delay: 200ms;">
+            <img src="assets/larry_and_mother.jpeg" alt="Larry and his mother, the inspiration behind Chapter">
+            <div class="about-origin-caption">Larry &amp; his mother, the inspiration behind Chapter</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM SECTION (BENTO GRID OVERHAUL) -->
+    <section class="team" id="team">
+      <div class="crosshair crosshair-tl">+</div>
+      <div class="crosshair crosshair-tr">+</div>
+      <div class="container">
+        <div class="platform-header reveal">
+          <div class="section-eyebrow">Our Team</div>
+          <h2 class="section-title">The people building Chapter</h2>
+          <p class="section-desc">A small, focused team of engineers and builders working to give educators real insight into student comprehension and students better tools to engage with their readings.</p>
+        </div>
+
+        <div class="team-bento-grid font-sans">
+          <!-- Team Member 1: Founder (Spans 2 columns, Horizontal) -->
+          <div class="team-card bento-span-2 highlighted reveal">
+            <div class="team-photo font-sans">
+              <img src="assets/team_larry.jpeg" alt="L. B. Harper III">
+            </div>
+            <div class="team-body font-sans">
+              <div>
+                <div class="team-name">L. B. Harper III</div>
+                <div class="team-role">Founder &amp; Manager</div>
+                <p class="team-bio font-sans">Founder of Chapter Reading LLC and graduating History senior at FSU. Larry built Chapter around a single conviction: universities deserve real data on how their students learn.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/lbharper3/" target="_blank" rel="noopener" class="team-linkedin">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Team Member 2: Will (Spans 1 column, Vertical) -->
+          <div class="team-card reveal" style="transition-delay: 100ms;">
+            <div class="team-photo font-sans">
+              <img src="assets/team_will.jpeg" alt="Will Schmidt">
+            </div>
+            <div class="team-body font-sans">
+              <div>
+                <div class="team-name">Will Schmidt</div>
+                <div class="team-role font-sans">Software Engineer</div>
+                <p class="team-bio font-sans">Will leads front-end and full-stack development, translating product vision into a fast, intuitive reading experience built for academic use.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/will-schmidt-888397256/" target="_blank" rel="noopener" class="team-linkedin">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Team Member 3: Jessica (Spans 1 column, Vertical) -->
+          <div class="team-card reveal">
+            <div class="team-photo font-sans">
+              <img src="assets/team_jessica.jpeg" alt="Jessica Neelam">
+            </div>
+            <div class="team-body font-sans">
+              <div>
+                <div class="team-name">Jessica Neelam</div>
+                <div class="team-role">Data Engineer</div>
+                <p class="team-bio font-sans">Jessica architects Chapter's tracking and data pipeline, ensuring analytics are robust, accurate, and FERPA-compliant from the ground up.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/jessica-preethi-neelam-789051229/" target="_blank" rel="noopener" class="team-linkedin font-sans">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Team Member 4: Advisor (Spans 2 columns, Horizontal) -->
+          <div class="team-card bento-span-2 reveal" style="transition-delay: 100ms;">
+            <div class="team-photo font-sans">
+              <img src="assets/team_jason.jpeg" alt="Jason Broughton">
+            </div>
+            <div class="team-body font-sans">
+              <div>
+                <div class="team-name">Jason Broughton</div>
+                <div class="team-role">Advisor</div>
+                <p class="team-bio font-sans">Director at the Library of Congress. Jason brings deep institutional knowledge of libraries, reading access, and academic governance to guide Chapter's strategic growth.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/jmbroughton/" target="_blank" rel="noopener" class="team-linkedin">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION (ACCORDION) -->
+    <section class="faq">
+      <div class="container faq-layout">
+        <div class="platform-header reveal">
+          <div class="section-eyebrow">FAQ</div>
+          <h2 class="section-title">Common Questions</h2>
+          <p class="section-desc">Everything you need to know about integrations, compliance, and how Chapter operates.</p>
+        </div>
+        
+        <div class="faq-list reveal" style="transition-delay: 100ms;">
+          <div class="faq-item">
+            <div class="faq-header">
+              <h3>Is Chapter FERPA-compliant?</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                <p>Yes. Chapter is fully FERPA-compliant. We prioritize student privacy by design, focusing on aggregate comprehension datasets and removing individual student surveillance vectors.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-header">
+              <h3>Does Chapter integrate with our existing LMS?</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                <p>Yes. We integrate seamlessly with major Learning Management Systems, including Canvas, Blackboard, and Moodle, allowing automatic sync of course readings and class rosters.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-header">
+              <h3>What file formats does the platform support?</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                <p>The upload portal supports PDFs, Word documents, and standard web pages. Chapter automatically parses and displays them in our distraction-free reader interface.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-header">
+              <h3>How is student reading data tracked?</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="faq-body">
+              <div class="faq-content">
+                <p>We track engagement metrics (scroll velocity, focus-page times, and repeat passes) in the background without intrusive trackers or cameras. This is compiled into aggregated classroom-level comprehension heatmaps.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMMERSIVE CTA -->
+    <div class="cta-band reveal">
+      <div class="cta-content">
+        <h2>Ready to begin your chapter?</h2>
+        <p>Join the educators and institutions working to close the gap between assigned readings and actual student comprehension.</p>
+        <a href="https://calendly.com/contactlarryjr" target="_blank" class="btn btn-primary font-sans">
+          <span>Request a Demo</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand font-sans">
+          <div class="footer-logo-badge">
+            <img src="assets/logo.jpeg" alt="Chapter Footer Logo">
+          </div>
+          <p class="footer-tagline">Close the gap between assigned readings and actual student comprehension.</p>
+        </div>
+        
+        <div class="footer-links-grid font-sans">
+          <div>
+            <h4 class="footer-col-title font-sans">Platform</h4>
+            <ul class="footer-menu">
+              <li><a href="#how">How It Works</a></li>
+              <li><a href="#product">Platform Overview</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-title font-sans font-sans">Company</h4>
+            <ul class="footer-menu">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team font-sans">Our Team</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="footer-col-title font-sans font-sans">Support</h4>
+            <ul class="footer-menu font-sans font-sans">
+              <li><a href="https://calendly.com/contactlarryjr" target="_blank">Contact Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom font-sans">
+        <div class="footer-copy">&copy; 2026 Chapter Reading LLC. All rights reserved.</div>
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans font-sans font-sans">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans font-sans">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+/* -------------------------------------------------------------
+   CHAPTER READING LLC - JAVASCRIPT (V3)
+   Interactivity & Live Mockup Product Tour
+   ------------------------------------------------------------- */
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // 1. STICKY NAVIGATION SCROLL TRIGGER
+  const navbar = document.getElementById("navbar");
+  
+  const handleScrollNavbar = () => {
+    if (navbar) {
+      if (window.scrollY > 40) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    }
+  };
+  
+  window.addEventListener("scroll", handleScrollNavbar);
+  handleScrollNavbar();
+
+  
+  // 2. INTERACTIVE PLATFORM PRODUCT TOUR (WITH ZOOMING)
+  const tourItems = document.querySelectorAll(".tour-menu-item");
+  const tourMockupImg = document.getElementById("tour-mockup-img");
+  const hotspots = document.querySelectorAll(".hotspot");
+
+  const updateHotspots = (tourIndex) => {
+    // Hide all first
+    hotspots.forEach(el => el.classList.remove("active"));
+    
+    // Delayed show to match the image transition
+    setTimeout(() => {
+      const activeHotspot = document.getElementById(`hotspot-feature-${tourIndex}`);
+      if (activeHotspot) activeHotspot.classList.add("active");
+    }, 400);
+  };
+
+  tourItems.forEach(item => {
+    item.addEventListener("click", () => {
+      if (item.classList.contains("active")) return; // Do nothing if already active
+      
+      const tourIndex = item.getAttribute("data-tour");
+      const imgPath = item.getAttribute("data-img");
+      
+      // Update menu active states
+      tourItems.forEach(el => el.classList.remove("active"));
+      item.classList.add("active");
+
+      // Smoothly transition image source and transform zoom coordinates
+      if (tourMockupImg) {
+        tourMockupImg.style.opacity = "0.3";
+        
+        // Update the active hotspots
+        updateHotspots(tourIndex);
+        
+        setTimeout(() => {
+          // Swap image file
+          tourMockupImg.src = imgPath;
+          tourMockupImg.setAttribute("alt", item.querySelector("h3").innerText);
+          
+          // Remove all previous zoom classes
+          tourMockupImg.className = "tour-mockup-img";
+          
+          // Add new zoom-state class
+          tourMockupImg.classList.add(`zoom-state-${tourIndex}`);
+          
+          // Fade back in
+          tourMockupImg.style.opacity = "1";
+        }, 200);
+      }
+    });
+  });
+
+
+  // 3. COMPREHENSION IMPACT CALCULATOR
+  const classSizeSlider = document.getElementById("class-size-slider");
+  const classSizeDisplay = document.getElementById("class-size-display");
+  const monthlyPoints = document.getElementById("monthly-points");
+  const unseenHours = document.getElementById("unseen-hours");
+
+  const updateCalculator = () => {
+    if (!classSizeSlider) return;
+    const size = parseInt(classSizeSlider.value);
+    
+    // Update label
+    if (classSizeDisplay) classSizeDisplay.innerText = `${size} Students`;
+    
+    // Monthly Data Points: 4 readings * 90 tracked metrics per student
+    const pointsVal = size * 4 * 90;
+    if (monthlyPoints) monthlyPoints.innerText = pointsVal.toLocaleString();
+    
+    // Unseen reading hours: 4 readings * 3 hours per reading
+    const hoursVal = size * 4 * 3;
+    if (unseenHours) unseenHours.innerText = `${hoursVal.toLocaleString()} Hrs`;
+  };
+
+  if (classSizeSlider) {
+    classSizeSlider.addEventListener("input", updateCalculator);
+    updateCalculator();
+  }
+
+
+  // 4. SCROLL REVEAL (INTERSECTION OBSERVER)
+  const revealElements = document.querySelectorAll(".reveal");
+  
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("active");
+          }, idx * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add("active"));
+  }
+
+  // 5. FAQ ACCORDION INTERACTIVITY
+  const faqItems = document.querySelectorAll(".faq-item");
+  
+  faqItems.forEach(item => {
+    const header = item.querySelector(".faq-header");
+    const body = item.querySelector(".faq-body");
+    
+    if (header && body) {
+      header.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+        
+        // Close all other accordion items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+            const otherBody = otherItem.querySelector(".faq-body");
+            if (otherBody) otherBody.style.maxHeight = null;
+          }
+        });
+        
+        // Toggle current item
+        if (isActive) {
+          item.classList.remove("active");
+          body.style.maxHeight = null;
+        } else {
+          item.classList.add("active");
+          body.style.maxHeight = body.scrollHeight + "px";
+        }
+      });
+    }
+  });
+
+  // 6. MAGNETIC BUTTONS ( tactile micro-interaction )
+  const magneticButtons = document.querySelectorAll(".btn-primary, .btn-secondary, .btn-hero-light, .nav-cta-btn");
+  
+  magneticButtons.forEach(btn => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      // Pull button towards cursor by 20% of the distance
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) translateY(-2px)`;
+    });
+    
+    btn.addEventListener("mouseleave", () => {
+      // Reset transform
+      btn.style.transform = "translate(0px, 0px)";
+    });
+  });
+});
+  </script>
+</body>
+</html>
