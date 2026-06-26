@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter — Begin Yours | Reading Engagement Platform</title>
+  <title>Chapter — On the same page. | Reading Engagement Platform</title>
   <meta name="description" content="Chapter provides universities and educators with real-time aggregate student reading comprehension data to close the learning gap.">
   <style>
 /* -------------------------------------------------------------
@@ -222,7 +222,7 @@ em, .italic {
 }
 
 .nav-logo img {
-  height: 30px;
+  height: 64px;
   width: auto;
   display: block;
 }
@@ -302,8 +302,8 @@ em, .italic {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 5rem;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
   align-items: center;
   position: relative;
   z-index: 5;
@@ -351,23 +351,118 @@ em, .italic {
 }
 
 /* Simulated macOS browser mockup window */
+.hero-flip-container {
+  perspective: 1500px;
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+}
+
+.hero-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+
+.hero-flip-container.flipped .hero-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.hero-flip-front, .hero-flip-back {
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hero-flip-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+}
+
+.hero-flip-back {
+  position: relative;
+  transform: rotateY(180deg);
+}
+
+/* Cover Card Design */
+.platform-cover-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(34, 84, 55, 0.25) 0%, rgba(10, 20, 15, 1) 100%), var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-lg);
+  padding: 3rem;
+  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+}
+
+.flip-arrow-indicator {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  color: var(--white);
+  opacity: 0.4;
+}
+
+.hero-flip-container:hover .flip-arrow-indicator {
+  opacity: 0.9;
+  transform: translateX(6px);
+}
+
+.flip-arrow-indicator svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+}
+
+.cover-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cover-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--green-light);
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+/* Browser Mockup Window */
 .hero-mockup-wrap {
   width: 100%;
-  max-width: 560px;
   border-radius: 12px;
   background: var(--white);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--rule);
-  padding: 0 0.5rem 0.5rem;
+  padding: 0.8rem;
   position: relative;
-  transform: rotateY(-8deg) rotateX(4deg) rotateZ(1deg);
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s ease;
-}
-
-.hero-mockup-wrap:hover {
-  transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateY(-8px);
-  box-shadow: 0 45px 95px rgba(13,31,22,0.14);
+  overflow: hidden;
 }
 
 .mockup-browser-header {
@@ -397,54 +492,13 @@ em, .italic {
   border: 1px solid rgba(13,31,22,0.05);
 }
 
-.hero-float-card {
-  position: absolute;
-  bottom: -2rem;
-  right: -1.5rem;
-  background: var(--ink);
-  color: var(--white);
-  padding: 1.2rem 1.6rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid rgba(255,255,255,0.08);
-  transform: rotate(-2deg);
-  transition: var(--transition);
-  z-index: 15;
-}
-
-.hero-float-card:hover {
-  transform: rotate(0deg) scale(1.05);
-}
-
-.hero-float-card .badge-title {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--green-light);
-  margin-bottom: 0.2rem;
-}
-
-.hero-float-card .badge-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1;
-}
-
-.hero-float-card .badge-sub {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.6);
-  margin-top: 0.1rem;
-}
-
 /* -------------------------------------------------------------
    STATS BAND
    ------------------------------------------------------------- */
 .stats-band {
   background: var(--ink);
   color: var(--white);
-  padding: 7rem 0;
+  padding: 4rem 0;
   position: relative;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
@@ -525,7 +579,7 @@ em, .italic {
    STICKY TIMELINE PROCESS
    ------------------------------------------------------------- */
 .process {
-  padding: 10rem 0;
+  padding: 5rem 0;
   background: var(--white);
 }
 
@@ -601,21 +655,58 @@ em, .italic {
   font-weight: 300;
   color: rgba(26,92,56,0.12);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  margin-right: 1.5rem;
   display: block;
 }
 
-.process-step h3 {
+.process-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.process-header h3 {
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  flex: 1;
 }
 
-.process-step p {
+.process-accordion-item.is-open {
+  border-color: var(--green-dark);
+}
+
+.process-accordion-item.is-open .faq-icon-indicator {
+  transform: rotate(45deg);
+}
+
+.process-accordion-item.is-open .faq-icon-indicator::after {
+  opacity: 0;
+}
+
+.process-accordion-item .process-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.4s ease;
+}
+
+.process-accordion-item.is-open .process-body {
+  max-height: 200px;
+  margin-top: 1.5rem;
+}
+
+.process-step.process-accordion-item.is-open::before {
+  background: var(--green-dark);
+  transform: scale(1.4);
+}
+
+.process-body p {
   font-size: 0.95rem;
   color: var(--slate);
   line-height: 1.8;
+  margin-bottom: 0;
 }
 
 /* -------------------------------------------------------------
@@ -623,7 +714,7 @@ em, .italic {
    ------------------------------------------------------------- */
 .platform {
   background: var(--off-white);
-  padding: 10rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
@@ -662,6 +753,38 @@ em, .italic {
   background: var(--white);
 }
 
+.tour-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.tour-menu-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.tour-menu-item.active .tour-menu-body {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.tour-menu-item.active .faq-icon-indicator {
+  transform: rotate(45deg);
+}
+
+.tour-menu-item.active .faq-icon-indicator::after {
+  opacity: 0;
+}
+
 .tour-menu-item .tour-num {
   font-size: 0.7rem;
   font-weight: 700;
@@ -679,20 +802,13 @@ em, .italic {
   font-size: 1.45rem;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0;
 }
 
 .tour-menu-item p {
   font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.6;
-  display: none; /* Collapsed by default */
-  animation: fadeIn 0.4s ease forwards;
-}
-
-.tour-menu-item.active p {
-  display: block; /* Visible when active */
   color: var(--slate);
+  line-height: 1.6;
 }
 
 /* Screen mockup container with viewport masking */
@@ -712,6 +828,96 @@ em, .italic {
   overflow: hidden;
   border-radius: 8px;
   position: relative;
+  cursor: zoom-in;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tour-screen-wrap.is-fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+.tour-screen-wrap.is-fullscreen .tour-viewport {
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+  aspect-ratio: auto;
+  border-radius: 12px;
+  cursor: default;
+}
+
+.modal-expand-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.tour-viewport:hover .modal-expand-hint {
+  opacity: 1;
+}
+
+.tour-screen-wrap.is-fullscreen .modal-expand-hint {
+  display: none !important;
+}
+
+.modal-expand-hint span {
+  background: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  color: var(--green-dark);
+  box-shadow: var(--shadow-md);
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.tour-viewport:hover .modal-expand-hint span {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  background: rgba(0,0,0,0.5);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.tour-screen-wrap.is-fullscreen .modal-close-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .tour-mockup-img {
@@ -738,310 +944,29 @@ em, .italic {
   transform: scale(1.7) translate(-14%, 14%);
 }
 
-/* -------------------------------------------------------------
-   INTERACTIVE DATA IMPACT CALCULATOR
-   ------------------------------------------------------------- */
-.roi-section {
-  padding: 10rem 0;
-  background: var(--white);
-}
 
-.roi-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
 
-.roi-widget-card {
-  background: var(--off-white);
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  padding: 4rem 3.5rem;
-  box-shadow: var(--shadow-md);
-}
 
-.roi-title-widget {
-  font-size: 1.7rem;
-  color: var(--ink);
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1rem;
-}
 
-.roi-control-group {
-  margin-bottom: 3rem;
-}
 
-.roi-label-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 1rem;
-}
-
-.roi-val-display {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: var(--green-dark);
-}
-
-.roi-slider {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background: rgba(26,92,56,0.1);
-  outline: none;
-}
-
-.roi-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--green-dark);
-  cursor: pointer;
-  transition: var(--transition-fast);
-}
-
-.roi-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.25);
-  background: var(--green-mid);
-}
-
-.roi-outputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.roi-out-card {
-  background: var(--white);
-  border: 1px solid var(--rule-light);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-}
-
-.roi-out-label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-}
-
-.roi-out-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  color: var(--ink);
-  line-height: 1;
-}
-
-/* -------------------------------------------------------------
-   EDITORIAL QUOTE SECTION
-   ------------------------------------------------------------- */
-.quote-banner {
-  background: var(--off-white);
-  padding: 8rem 0;
-  text-align: center;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-
-.quote-banner blockquote {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: clamp(2rem, 3.8vw, 3.2rem);
-  font-weight: 300;
-  color: var(--ink);
-  max-width: 960px;
-  margin: 0 auto;
-  line-height: 1.35;
-  position: relative;
-}
-
-.quote-banner .quote-icon {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 10rem;
-  color: var(--green-pale);
-  line-height: 0;
-  display: block;
-  height: 2rem;
-}
-
-.quote-banner .quote-open {
-  margin-bottom: 3.5rem;
-}
-
-.quote-banner .quote-author {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-top: 2.5rem;
-  display: block;
-}
-
-/* -------------------------------------------------------------
-   ABOUT & STORY Collage
-   ------------------------------------------------------------- */
-.about {
-  background: var(--white);
-  padding: 10rem 0;
-}
-
-.about-editorial-grid {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 7rem;
-  align-items: center;
-  margin-bottom: 9rem;
-}
-
-.about-photo-wrapper {
-  position: relative;
-  width: fit-content;
-  margin: 0 auto;
-}
-
-.about-photo-wrapper img {
-  width: 100%;
-  max-width: 400px;
-  display: block;
-  border-radius: 8px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--rule);
-}
-
-.about-frame-accent {
-  position: absolute;
-  top: -1.5rem;
-  left: -1.5rem;
-  width: 100%;
-  height: 100%;
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  pointer-events: none;
-  z-index: -1;
-  background: var(--green-pale);
-  transform: rotate(-1.5deg);
-}
-
-.about-badge {
-  position: absolute;
-  bottom: -1rem;
-  right: 1.5rem;
-  background: var(--green-dark);
-  color: var(--white);
-  padding: 0.8rem 1.6rem;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  box-shadow: var(--shadow-md);
-}
-
-.about-editorial-text p {
-  font-size: 1.02rem;
-  color: var(--slate);
-  margin-bottom: 1.8rem;
-  line-height: 1.85;
-}
-
-.about-founder-meta {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--rule);
-}
-
-.founder-signature {
-  font-family: 'Alex Brush', cursive;
-  font-size: 3.2rem;
-  font-weight: 400;
-  color: var(--green-dark);
-  line-height: 1.1;
-  margin-bottom: 0.2rem;
-  letter-spacing: normal;
-}
-
-.founder-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-top: 0.4rem;
-}
-
-/* Origin block */
-.about-origin {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 7rem;
-  align-items: center;
-  padding-top: 8rem;
-  border-top: 1px solid var(--rule);
-}
-
-.about-origin-photo {
-  position: relative;
-}
-
-.about-origin-photo img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--rule);
-  display: block;
-}
-
-.about-origin-caption {
-  font-size: 0.75rem;
-  color: var(--muted);
-  margin-top: 1.2rem;
-  font-style: italic;
-  text-align: center;
-}
-
-.about-origin-text h3 {
-  font-size: 2.4rem;
-  color: var(--ink);
-  margin-bottom: 1.8rem;
-}
-
-.about-origin-text p {
-  font-size: 0.98rem;
-  color: var(--slate);
-  margin-bottom: 1.8rem;
-  line-height: 1.8;
-}
 
 /* -------------------------------------------------------------
    TEAM BENTO GRID REDESIGN
    ------------------------------------------------------------- */
 .team {
-  background: var(--off-white);
-  padding: 10rem 0;
+  background-color: var(--off-white);
+  background-image: 
+    radial-gradient(circle at top right, rgba(45,122,82,0.06) 0%, transparent 60%),
+    linear-gradient(rgba(26,92,56,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,92,56,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+  padding: 5rem 0;
   border-top: 1px solid var(--rule);
 }
 
 .team-bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
@@ -1165,7 +1090,7 @@ em, .italic {
    ------------------------------------------------------------- */
 .cta-band {
   background: var(--green-pale);
-  padding: 9rem 0;
+  padding: 5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1210,134 +1135,266 @@ em, .italic {
 footer {
   background: var(--ink);
   color: rgba(255, 255, 255, 0.7);
-  padding: 7rem 0 3.5rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 6rem 0 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1.1fr 1fr 1.4fr;
   gap: 5rem;
   padding-bottom: 5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 3.5rem;
 }
 
-.footer-logo-badge {
-  background: var(--white);
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Left Column: Brand & Links */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
 }
 
-.footer-logo-badge img {
-  height: 24px;
+.footer-logo-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo-brand img {
+  height: 64px;
   width: auto;
-  display: block;
+  border-radius: 4px;
 }
 
-.footer-tagline {
-  font-size: 0.92rem;
-  max-width: 280px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
+.footer-brand-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
 }
 
-.footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
-.footer-col-title {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green-light);
-  margin-bottom: 1.8rem;
-}
-
-.footer-menu {
+.footer-links-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-}
-
-.footer-menu a {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.45);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-menu a:hover {
-  color: var(--white);
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.footer-copy {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.35);
-}
-
-/* Footer Social Icons */
-.footer-social {
-  display: flex;
-  align-items: center;
   gap: 1.2rem;
 }
 
-.footer-social a {
+.footer-links-list a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-links-list a:hover {
+  color: var(--green-light);
+}
+
+/* Middle Column: Contact details */
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.contact-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--white);
+  text-decoration: none;
+  font-style: normal;
+  line-height: 1.5;
+  transition: var(--transition-fast);
+}
+
+a.contact-value:hover {
+  color: var(--green-light);
+}
+
+/* Right Column: Subscribe */
+.footer-subscribe {
+  display: flex;
+  flex-direction: column;
+}
+
+.subscribe-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.subscribe-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.subscribe-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.subscribe-form .input-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--white);
+}
+
+.subscribe-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  font-family: inherit;
+  font-size: 0.88rem;
+  color: var(--white);
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.subscribe-input:focus {
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 2px rgba(61,170,114,0.15);
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe-checkbox {
+  margin-top: 0.25rem;
+  accent-color: var(--green-light);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.subscribe-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--green-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(26,92,56,0.15);
+  transition: var(--transition-fast);
+}
+
+.subscribe-btn:hover {
+  background: var(--green-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(26,92,56,0.25);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-bottom-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.footer-legal-links a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.footer-legal-links a:hover {
+  color: var(--green-light);
+}
+
+.footer-copyright {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-social-icons a {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: var(--white);
+  color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.45);
-  background: transparent;
-  transition: all 0.3s ease;
+  transition: var(--transition-fast);
 }
 
-.footer-social a:hover {
-  border-color: var(--white);
+.footer-social-icons a:hover {
+  background: var(--green-light);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
 }
 
-.footer-social svg {
-  width: 1.1rem;
-  height: 1.1rem;
+.footer-social-icons svg {
+  width: 1rem;
+  height: 1rem;
   fill: currentColor;
-}
-
-.footer-bottom-links {
-  display: flex;
-  gap: 2.2rem;
-}
-
-.footer-bottom-links a {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.35);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-bottom-links a:hover {
-  color: var(--green-light);
 }
 
 /* -------------------------------------------------------------
@@ -1412,20 +1469,9 @@ footer {
     gap: 4rem;
   }
   
-  .roi-layout {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
+
   
-  .about-editorial-grid {
-    grid-template-columns: 1fr;
-    gap: 5rem;
-  }
-  
-  .about-origin {
-    grid-template-columns: 1fr;
-    gap: 5rem;
-  }
+
   
   .team-bento-grid {
     grid-template-columns: 1fr;
@@ -1467,13 +1513,7 @@ footer {
     grid-template-columns: 1fr;
   }
   
-  .roi-widget-card {
-    padding: 3rem 2rem;
-  }
-  
-  .roi-outputs {
-    grid-template-columns: 1fr;
-  }
+
 }
 
 @media (max-width: 480px) {
@@ -1646,7 +1686,7 @@ footer {
 
 /* Accordion FAQs */
 .faq {
-  padding: 10rem 0;
+  padding: 5rem 0;
   background: var(--white);
   border-top: 1px solid var(--rule);
 }
@@ -1804,10 +1844,501 @@ footer {
 .crosshair-br { bottom: 1.5rem; right: 1.5rem; }
 
 /* Apply position relative to grid containers for crosshair placement */
-.hero, .stats-band, .process, .platform, .roi-section, .about, .team {
+.hero, .stats-band, .process, .platform, .team {
   position: relative;
 }
-  </style>
+
+/* -------------------------------------------------------------
+   LIVE TOUR MOCKUPS STYLING
+   ------------------------------------------------------------- */
+.live-mockup-wrapper {
+  width: 100%;
+  height: calc(100% - 28px);
+  position: relative;
+  background: var(--white);
+}
+
+.live-mockup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.98);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.live-mockup.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Reader Mockup Styling */
+.live-reader-header {
+  height: 36px;
+  min-height: 36px;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--slate);
+}
+
+.lr-back {
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.lr-back:hover { color: var(--green-dark); }
+
+.lr-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.lr-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lr-progress-track {
+  width: 70px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.lr-progress-fill {
+  height: 100%;
+  background: var(--green-dark);
+}
+
+.lr-percentage {
+  font-weight: 700;
+  font-size: 0.68rem;
+  color: var(--ink);
+}
+
+.lr-notes-btn {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--slate);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lr-notes-btn:hover {
+  background: var(--off-white);
+  color: var(--ink);
+}
+
+.live-reader-body {
+  display: flex;
+  height: calc(100% - 36px);
+  overflow: hidden;
+}
+
+.live-reader-text {
+  width: 72%;
+  display: flex;
+  padding: 1.2rem;
+  overflow-y: auto;
+  position: relative;
+  background: var(--white);
+  box-sizing: border-box;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hide notes sidebar states */
+.live-mockup.notes-hidden .live-reader-text {
+  width: 100%;
+}
+.live-mockup.notes-hidden .live-reader-sidebar {
+  display: none;
+}
+
+.lr-symbols-col {
+  width: 32px;
+  min-width: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 0.8rem;
+  border-right: 1px solid var(--rule);
+  margin-right: 1rem;
+  padding-right: 0.4rem;
+  box-sizing: border-box;
+}
+
+.lr-symbols-col span {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.lr-symbols-col span:hover {
+  color: var(--green-dark);
+}
+
+.lr-paragraphs {
+  flex: 1;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.5;
+  color: var(--ink);
+  font-size: 0.88rem;
+  text-align: left;
+  user-select: none;
+}
+
+.lr-paragraphs h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.lr-paragraphs p {
+  margin: 0 0 0.8rem 0;
+  position: relative;
+}
+
+/* Annotation highlights */
+.lr-highlight-under,
+.lr-highlight-yellow,
+.lr-highlight-target {
+  position: relative;
+  background-color: rgba(255, 235, 59, 0.25);
+  transition: background-color 0.3s ease;
+  padding: 1px 0;
+}
+
+/* During active animation, override static backgrounds to draw dynamically */
+.reader-mockup.animate-highlight .lr-highlight-under,
+.reader-mockup.animate-highlight .lr-highlight-yellow,
+.reader-mockup.animate-highlight .lr-highlight-target {
+  background-color: transparent !important;
+}
+
+/* Dynamic Live Highlight style controlled via JS simulation */
+.lr-live-highlight {
+  background-image: linear-gradient(rgba(255, 235, 59, 0.35), rgba(255, 235, 59, 0.35)) !important;
+  background-position: 0% 0% !important;
+  background-repeat: no-repeat !important;
+  background-size: 0% 100%;
+}
+
+.live-reader-cursor {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: var(--green-dark);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  transition: left 1.2s linear, top 0.4s ease, opacity 0.3s ease;
+}
+
+.live-reader-cursor::after {
+  content: '';
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--green-dark);
+  opacity: 0;
+}
+
+/* Cursor pulse indicator when visible */
+.reader-mockup.animate-highlight .live-reader-cursor::after {
+  animation: pulseCursor 1.33s infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes pulseCursor {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Sidebar Styling */
+.live-reader-sidebar {
+  width: 28%;
+  border-left: 1px solid var(--rule);
+  background: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.lr-sidebar-tabs {
+  display: flex;
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+
+.lr-tab {
+  flex: 1;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--slate);
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.lr-tab.active {
+  color: var(--green-dark);
+  border-bottom: 2px solid var(--green-dark);
+}
+
+.lr-sidebar-notes {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.lr-note-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.65rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.lr-note-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.lr-note-quote {
+  font-size: 0.64rem;
+  color: var(--slate);
+  font-style: italic;
+  line-height: 1.35;
+  display: block;
+}
+
+.lr-note-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: block;
+}
+
+.lr-note-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem;
+  color: var(--green-dark);
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.lr-note-link::before {
+  content: '📍';
+  font-size: 0.55rem;
+}
+.lr-note-link:hover {
+  text-decoration: underline;
+}
+
+/* Analytics Mockup Styling */
+.analytics-mockup {
+  background: var(--off-white);
+}
+
+.live-analytics-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--white);
+  text-align: left;
+}
+
+.live-analytics-header h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.15rem 0;
+}
+
+.analytics-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--slate);
+}
+
+.live-analytics-body {
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  height: calc(100% - 60px);
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.live-metric-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.lm-label-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.lm-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.lm-val {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.lm-progress-track {
+  height: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 100px;
+  position: relative;
+}
+
+.lm-progress-bar {
+  height: 100%;
+  background: var(--green-dark);
+  border-radius: 100px;
+  width: 0%;
+  transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lm-slider-handle {
+  position: absolute;
+  top: -5px;
+  left: 0%;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border: 3px solid var(--green-dark);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: left 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lm-slider-handle::after {
+  content: '';
+  position: absolute;
+  top: -12px; left: -12px; right: -12px; bottom: -12px;
+  border-radius: 50%;
+  background: rgba(45, 122, 82, 0.12);
+  border: 1px solid rgba(45, 122, 82, 0.25);
+  pointer-events: none;
+  animation: pulseHandle 2s infinite;
+}
+
+@keyframes pulseHandle {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(0.85); opacity: 0.8; }
+}
+
+/* Feature 3: Analytics animations */
+.analytics-mockup.animate-metrics .lm-bar-1 {
+  width: 92%;
+}
+
+.analytics-mockup.animate-metrics .lm-bar-2 {
+  width: 42%;
+}
+
+.analytics-mockup.animate-metrics .lm-slider-handle {
+  left: 42%;
+}
+
+.analytics-mockup.animate-metrics .lm-bar-3 {
+  width: 80%;
+}
+
+/* Hide scrollbars for the live mockups to maintain clean browser dashboard aesthetics */
+.live-reader-text::-webkit-scrollbar,
+.lr-sidebar-notes::-webkit-scrollbar,
+.live-reader-sidebar::-webkit-scrollbar {
+  display: none;
+}
+.live-reader-text,
+.lr-sidebar-notes,
+.live-reader-sidebar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+  /* Custom Interaction Styles */
+.interactive-text {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 3px;
+}
+.interactive-text:hover {
+  background-color: rgba(61,170,114,0.15);
+}
+
+.interactive-symbol {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.interactive-symbol:hover {
+  transform: scale(1.3);
+  color: var(--green-dark);
+}
+
+.interactive-metric {
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  border-radius: 6px;
+}
+.interactive-metric:hover {
+  transform: translateX(4px);
+  background-color: rgba(61,170,114,0.05);
+}
+</style>
 </head>
 <body>
 
@@ -1820,12 +2351,12 @@ footer {
     <div class="container">
       <nav class="nav-container">
         <a href="#" class="nav-logo">
-          <img src="assets/logo.jpeg" alt="Chapter Logo">
+          <img src="assets/logo.png" alt="Chapter Logo">
         </a>
         <ul class="nav-links">
           <li><a href="#how">How It Works</a></li>
           <li><a href="#product">Platform</a></li>
-          <li><a href="#about">About</a></li>
+
           <li><a href="#team">Team</a></li>
         </ul>
         <a href="https://calendly.com/contactlarryjr" target="_blank" class="nav-cta-btn">Request Demo</a>
@@ -1841,7 +2372,7 @@ footer {
       <div class="container hero-grid">
         <div class="hero-left reveal">
           <div class="hero-eyebrow">Reading Engagement Platform</div>
-          <h1><em>Chapter:</em><br>Begin yours.</h1>
+          <h1><em>Chapter:</em><br>On the same page.</h1>
           <p class="hero-sub">Chapter gives educators the data they need to understand what students actually comprehend from their readings, and gives students the tools to engage more deeply with the material.</p>
           <div class="hero-actions">
             <a href="#how" class="btn btn-primary">
@@ -1852,44 +2383,115 @@ footer {
         </div>
         
         <div class="hero-right reveal" style="transition-delay: 100ms;">
-          <div class="hero-mockup-wrap">
-            <div class="mockup-browser-header">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <img src="assets/hero_screen.jpeg" alt="Chapter Student reading interface mock dashboard">
-            <div class="hero-float-card">
-              <div class="badge-title">Our Platform</div>
-              <div class="badge-value">92%</div>
-              <div class="badge-sub">Avg. Engagement Rate</div>
+          <div class="hero-flip-container">
+            <div class="hero-flip-inner">
+              
+              <!-- FRONT FACE (Cover Card) -->
+              <div class="hero-flip-front">
+                <div class="platform-cover-card">
+                  <h3 class="cover-title">OUR PLATFORM</h3>
+                  <p class="cover-subtitle">Engagement Engine</p>
+                  <div class="flip-arrow-indicator" title="Click to flip">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- BACK FACE (Browser Mockup Screen with Live Reader Animations) -->
+              <div class="hero-flip-back">
+                <div class="hero-mockup-wrap">
+                  <div class="tour-viewport">
+                    <div class="mockup-browser-header" style="background: #f1f3f2; border-bottom: 1px solid var(--rule);">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    
+                    <div class="live-mockup-wrapper">
+                      <!-- Live Reader mockup (Static preview on cover flip) -->
+                      <div class="live-mockup reader-mockup active">
+                        <div class="live-reader-header">
+                          <span class="lr-back">← Library</span>
+                          <span class="lr-title">The Republic</span>
+                          <div class="lr-progress-wrap">
+                            <div class="lr-progress-track">
+                              <div class="lr-progress-fill" style="width: 42%;"></div>
+                            </div>
+                            <span class="lr-percentage">42%</span>
+                          </div>
+                          <span class="lr-notes-btn">Hide Notes</span>
+                        </div>
+                        
+                        <div class="live-reader-body">
+                          <div class="live-reader-text">
+                            <div class="lr-symbols-col">
+                              <span class="sym-star">★</span>
+                              <span class="sym-help">?</span>
+                              <span class="sym-warn">▲</span>
+                              <span class="sym-circle">○</span>
+                            </div>
+                            <div class="lr-paragraphs">
+                              <h5>Book I</h5>
+                              <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, <span class="lr-highlight-under">we turned in the direction of the city;</span> and at that instant Polemarchus... </p>
+                              <p>The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait. I turned round, and asked him <span class="lr-highlight-yellow">where his master was.</span> There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
+                              <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city. You are not far wrong, I said. But do you see, he rejoined, how many we are? Of course. And are you stronger than all these? for if not, you will have to remain where you are.</p>
+                              <p>May there not be the alternative, I said, that we may persuade you to let us go? But can you persuade us, if we refuse to listen to you? he said. Certainly not, replied Glaucon. <span class="lr-highlight-target">Then we are not going to listen; of that you may be assured.</span></p>
+                              
+                              <!-- Pulse Cursor for Feature 2 -->
+                              <div class="live-reader-cursor"></div>
+                            </div>
+                          </div>
+                          
+                          <div class="live-reader-sidebar">
+                            <div class="lr-sidebar-tabs">
+                              <span class="lr-tab active">Notes (3)</span>
+                              <span class="lr-tab">AI</span>
+                              <span class="lr-tab">Workspace</span>
+                            </div>
+                            <div class="lr-sidebar-notes">
+                              <div class="lr-note-card">
+                                <span class="lr-note-quote">"Polemarchus said to me: I perceive, Socrates, that you and your companion are al..."</span>
+                                <span class="lr-note-text">Marked for analysis</span>
+                                <span class="lr-note-link">Ask AI about this</span>
+                              </div>
+                              <div class="lr-note-card">
+                                <span class="lr-note-quote">"May there not be the alternative, I said, that we may persuade you to let us go?..."</span>
+                                <span class="lr-note-text">Teacher discussion in class tomorrow</span>
+                                <span class="lr-note-link">Ask AI about this</span>
+                              </div>
+                              <div class="lr-note-card">
+                                <span class="lr-note-quote">"With these words I was thinking that I had made an end of the discussion, but th..."</span>
+                                <span class="lr-note-text">Research a source for this section</span>
+                                <span class="lr-note-link">Ask AI about this</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS BAND -->
-    <div class="stats-band">
-      <div class="container stats-grid">
-        <div class="stats-intro reveal">
-          <div class="section-eyebrow">The Problem by the numbers</div>
-          <h2>The gap between assigned readings and student completion.</h2>
-        </div>
-        <div class="stats-cards">
-          <div class="stat-card reveal" style="transition-delay: 100ms;">
-            <div class="stat-num">70%</div>
-            <div class="stat-desc">of undergraduates do not complete their assigned readings</div>
+    <!-- THE PROBLEM -->
+    <div class="stats-band" style="text-align: center;">
+      <div class="container">
+        <div class="reveal" style="max-width: 800px; margin: 0 auto;">
+          <div class="section-eyebrow" style="justify-content: center; color: var(--green-light);">
+            The Problem
+            <span style="display: inline-block; width: 1.5rem; height: 1px; background: var(--green-light);"></span>
           </div>
-          <div class="stat-card reveal" style="transition-delay: 200ms;">
-            <div class="stat-num">6%</div>
-            <div class="stat-desc">accuracy rate educators have when judging student reading comprehension</div>
-          </div>
+          <h2 style="color: var(--white); font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 2rem;">There is a fundamental disconnect between assigned reading and true understanding.</h2>
+          <p style="color: rgba(255,255,255,0.72); font-size: 1.15rem; line-height: 1.8;">
+            Students often read in isolation, struggling with complex texts without support. Educators assign chapters with no visibility into true comprehension until it's too late. This silence leaves both students and teachers in the dark.
+          </p>
         </div>
-      </div>
-      <div class="container stats-footnotes reveal">
-        <p>¹ Inside Higher Ed: "over 70% of students admitted they don't do the assigned readings for class." 2024</p>
-        <p>² Engelen, J. A. A., Camp, G., van de Pol, J., &amp; de Bruin, A. B. H. (2018).</p>
       </div>
     </div>
 
@@ -1901,24 +2503,39 @@ footer {
         <div class="process-sticky-left reveal">
           <div class="section-eyebrow">How It Works</div>
           <h2 class="section-title">Simple to use.<br>Serious in depth.</h2>
-          <p class="section-desc">Chapter is a dedicated reading platform built for academic institutions. Students engage with assigned readings using purpose-built tools. Those interactions become actionable data for educators.</p>
+          <p class="section-desc">Chapter is a dedicated reading platform built for Educators. Students engage with assigned readings using purpose-built tools. Those interactions become actionable data for educators.</p>
         </div>
         
-        <div class="process-steps">
-          <div class="process-step reveal" style="transition-delay: 100ms;">
-            <span class="process-num">01</span>
-            <h3>Upload &amp; Set Objectives</h3>
-            <p>Professors upload texts and define the learning objectives they expect students to meet, setting a clear benchmark before any reading begins.</p>
+        <div class="process-steps process-accordion">
+          <div class="process-step process-accordion-item is-open reveal" style="transition-delay: 100ms;">
+            <div class="process-header">
+              <span class="process-num">01</span>
+              <h3>Upload &amp; Set Objectives</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="process-body">
+              <p>Educators upload texts and define the learning objectives they expect students to meet.</p>
+            </div>
           </div>
-          <div class="process-step reveal" style="transition-delay: 200ms;">
-            <span class="process-num">02</span>
-            <h3>Students Read &amp; Engage</h3>
-            <p>Students read within Chapter's clean interface, highlighting, annotating, and using reading tools. Every interaction is tracked: time spent, scroll depth, notes taken, re-reads.</p>
+          <div class="process-step process-accordion-item reveal" style="transition-delay: 200ms;">
+            <div class="process-header">
+              <span class="process-num">02</span>
+              <h3>Students Read &amp; Engage</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="process-body">
+              <p>Students read within Chapter's clean interface, highlighting, annotating, and using reading tools. Every interaction is tracked: time spent, scroll depth, notes taken, re-reads.</p>
+            </div>
           </div>
-          <div class="process-step reveal" style="transition-delay: 300ms;">
-            <span class="process-num">03</span>
-            <h3>Professors Receive Insights</h3>
-            <p>Instructors receive aggregate analytics showing how their class engaged with each reading. No individual surveillance. Just the insight needed to understand comprehension gaps and improve instruction.</p>
+          <div class="process-step process-accordion-item reveal" style="transition-delay: 300ms;">
+            <div class="process-header">
+              <span class="process-num">03</span>
+              <h3>Educators Receive Insights</h3>
+              <span class="faq-icon-indicator"></span>
+            </div>
+            <div class="process-body">
+              <p>Educators receive analytics showing reading comprehension and gaps that improve instruction.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1939,168 +2556,184 @@ footer {
           <!-- Tour Menu Selection -->
           <div class="tour-menu-wrap reveal">
             <div class="tour-menu-item active" data-tour="0" data-img="assets/student_view.jpeg">
-              <span class="tour-num">Feature 01</span>
-              <h3>Clutter-Free Reader</h3>
-              <p>A focused, clean reading environment designed to minimize cognitive load. Students engage directly with margin tools while distractions are kept out of sight.</p>
+              <div class="tour-menu-header">
+                <div class="tour-title-wrap">
+                  <span class="tour-num">Feature 01</span>
+                  <h3>Clutter-Free Reader</h3>
+                </div>
+                <span class="faq-icon-indicator"></span>
+              </div>
+              <div class="tour-menu-body">
+                <p>A focused, clean reading environment designed to minimize cognitive load. Students engage directly with margin tools while distractions are kept out of sight.</p>
+              </div>
             </div>
             
             <div class="tour-menu-item" data-tour="1" data-img="assets/student_view.jpeg">
-              <span class="tour-num">Feature 02</span>
-              <h3>Active Annotations</h3>
-              <p>Highlights, margin comments, and student reading milestones are logged in context. These metrics sync silently to populate aggregate datasets.</p>
+              <div class="tour-menu-header">
+                <div class="tour-title-wrap">
+                  <span class="tour-num">Feature 02</span>
+                  <h3>Active Annotations</h3>
+                </div>
+                <span class="faq-icon-indicator"></span>
+              </div>
+              <div class="tour-menu-body">
+                <p>Highlights, margin comments, and student reading milestones are logged in context. These metrics sync silently to populate aggregate datasets.</p>
+              </div>
             </div>
             
             <div class="tour-menu-item" data-tour="2" data-img="assets/professor_view.jpeg">
-              <span class="tour-num">Feature 03</span>
-              <h3>Professor Analytics</h3>
-              <p>Instructors track class progress maps, time-on-page stats, and paragraph highlights. Spot comprehension gaps instantly before class begins.</p>
+              <div class="tour-menu-header">
+                <div class="tour-title-wrap">
+                  <span class="tour-num">Feature 03</span>
+                  <h3>Educator Analytics</h3>
+                </div>
+                <span class="faq-icon-indicator"></span>
+              </div>
+              <div class="tour-menu-body">
+                <p>Educators track class progress maps, time-on-page stats, and paragraph highlights. Spot comprehension gaps instantly before class begins.</p>
+              </div>
             </div>
           </div>
 
           <!-- Zooming Screen Viewport -->
           <div class="tour-screen-wrap reveal" style="transition-delay: 200ms;">
             <div class="tour-viewport">
-              <div class="hotspot-container">
-                <!-- Feature 01 hotspot -->
-                <div class="hotspot active" id="hotspot-feature-0" style="top: 61%; left: 61%;">
-                  <div class="hotspot-tooltip font-sans">
-                    <strong>Focused Reader Layout</strong><br>Optimized margin padding offsets elements for maximum reading endurance.
-                  </div>
-                </div>
-                <!-- Feature 02 hotspot -->
-                <div class="hotspot" id="hotspot-feature-1" style="top: 70%; left: 84%;">
-                  <div class="hotspot-tooltip font-sans">
-                    <strong>Active Highlights</strong><br>Students log highlights and select tags contextual to their reading targets.
-                  </div>
-                </div>
-                <!-- Feature 03 hotspot -->
-                <div class="hotspot" id="hotspot-feature-2" style="top: 74%; left: 74%;">
-                  <div class="hotspot-tooltip font-sans">
-                    <strong>Comprehension Heatmap</strong><br>Aggregates sentence-by-sentence reading times to isolate study gaps.
-                  </div>
-                </div>
+              <!-- Full-screen Close Button -->
+              <div class="modal-close-btn">&times;</div>
+              
+              <!-- Hover Overlay Hint -->
+              <div class="modal-expand-hint">
+                <span>Click to Expand</span>
               </div>
-              <img id="tour-mockup-img" src="assets/student_view.jpeg" alt="Chapter Student reading interface" class="tour-mockup-img zoom-state-0">
+              <div class="mockup-browser-header" style="background: #f1f3f2; border-bottom: 1px solid var(--rule);">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              
+              <!-- Live Mockups Wrapper -->
+              <div class="live-mockup-wrapper">
+                
+                <!-- FEATURE 1 & 2: Reader Mockup -->
+                <div class="live-mockup reader-mockup active">
+                  <div class="live-reader-header">
+                    <span class="lr-back">← Library</span>
+                    <span class="lr-title">The Republic</span>
+                    <div class="lr-progress-wrap">
+                      <div class="lr-progress-track">
+                        <div class="lr-progress-fill" style="width: 42%;"></div>
+                      </div>
+                      <span class="lr-percentage">42%</span>
+                    </div>
+                    <span class="lr-notes-btn">Hide Notes</span>
+                  </div>
+                  
+                  <div class="live-reader-body">
+                    <div class="live-reader-text">
+                      <div class="lr-symbols-col">
+                        <span class="sym-star interactive-symbol" title="Highlight Key Idea">★</span>
+                        <span class="sym-help interactive-symbol" title="Ask AI / Confusing">?</span>
+                        <span class="sym-warn interactive-symbol" title="Important Warning">▲</span>
+                        <span class="sym-circle interactive-symbol" title="Add Note">○</span>
+                      </div>
+                      <div class="lr-paragraphs">
+                        <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, <span class="lr-highlight-under interactive-text" title="Click to highlight">we turned in the direction of the city;</span> and at that instant Polemarchus... </p>
+                        <p>The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait. I turned round, and asked him <span class="lr-highlight-yellow interactive-text" title="Click to highlight">where his master was.</span> There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
+                        <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city. You are not far wrong, I said. But do you see, he rejoined, how many we are? Of course. And are you stronger than all these? for if not, you will have to remain where you are.</p>
+                        <p>May there not be the alternative, I said, that we may persuade you to let us go? But can you persuade us, if we refuse to listen to you? he said. Certainly not, replied Glaucon. <span class="lr-highlight-target interactive-text" title="Click to highlight">Then we are not going to listen; of that you may be assured.</span></p>
+                        
+                        <!-- Pulse Cursor for Feature 2 -->
+                        <div class="live-reader-cursor"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="live-reader-sidebar">
+                      <div class="lr-sidebar-tabs">
+                        <span class="lr-tab active">Notes (3)</span>
+                        <span class="lr-tab">AI</span>
+                        <span class="lr-tab">Workspace</span>
+                      </div>
+                      <div class="lr-sidebar-notes">
+                        <div class="lr-note-card">
+                          <span class="lr-note-quote">"Polemarchus said to me: I perceive, Socrates, that you and your companion are al..."</span>
+                          <span class="lr-note-text">Marked for analysis</span>
+                          <span class="lr-note-link">Ask AI about this</span>
+                        </div>
+                        <div class="lr-note-card">
+                          <span class="lr-note-quote">"May there not be the alternative, I said, that we may persuade you to let us go?..."</span>
+                          <span class="lr-note-text">Teacher discussion in class tomorrow</span>
+                          <span class="lr-note-link">Ask AI about this</span>
+                        </div>
+                        <div class="lr-note-card">
+                          <span class="lr-note-quote">"With these words I was thinking that I had made an end of the discussion, but th..."</span>
+                          <span class="lr-note-text">Research a source for this section</span>
+                          <span class="lr-note-link">Ask AI about this</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- FEATURE 3: Analytics Mockup -->
+                <div class="live-mockup analytics-mockup">
+                  <div class="live-analytics-header">
+                    <h4>The Republic</h4>
+                    <span class="analytics-sub">Classroom Insights & Reading Metrics</span>
+                  </div>
+                  
+                  <div class="live-analytics-body">
+                    <div class="live-metric-row interactive-metric" title="92% of students completed this chapter.">
+                      <div class="lm-label-wrap">
+                        <span class="lm-label">Completion Rate</span>
+                        <span class="lm-val lm-val-1">92%</span>
+                      </div>
+                      <div class="lm-progress-track">
+                        <div class="lm-progress-bar lm-bar-1"></div>
+                      </div>
+                    </div>
+                    <div class="live-metric-row interactive-metric" title="Average time spent actively reading is 42 mins.">
+                      <div class="lm-label-wrap">
+                        <span class="lm-label">Time-on-Page</span>
+                        <span class="lm-val lm-val-2">42%</span>
+                      </div>
+                      <div class="lm-progress-track">
+                        <div class="lm-progress-bar lm-bar-2"></div>
+                        <div class="lm-slider-handle"></div>
+                      </div>
+                    </div>
+                    <div class="live-metric-row interactive-metric" title="80% of required interactions completed on average.">
+                      <div class="lm-label-wrap">
+                        <span class="lm-label">Highlights Logged</span>
+                        <span class="lm-val lm-val-3">80%</span>
+                      </div>
+                      <div class="lm-progress-track">
+                        <div class="lm-progress-bar lm-bar-3"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EDITORIAL QUOTE BANNER -->
-    <div class="quote-banner reveal">
-      <div class="container">
-        <span class="quote-icon quote-open">“</span>
-        <blockquote>
-          Chapter is not built to replace thinking. It is built to deepen it.
-          <span class="quote-author">L. B. Harper III &mdash; Founder, Chapter Reading LLC</span>
-        </blockquote>
-      </div>
-    </div>
 
-    <!-- COMPREHENSION IMPACT CALCULATOR -->
-    <section class="roi-section">
-      <div class="container roi-layout">
-        <div class="roi-text reveal">
-          <div class="section-eyebrow">Data Impact Calculator</div>
-          <h2 class="section-title">See the reading insights you're missing</h2>
-          <p class="section-desc">Depending on your class size, students generate thousands of engagement metrics. Without Chapter, this crucial learning data goes completely uncaptured, leaving you in the dark about student comprehension.</p>
-          <a href="https://calendly.com/contactlarryjr" target="_blank" class="btn btn-primary">
-            <span>Unlock Classroom Insights</span>
-          </a>
-        </div>
-        
-        <div class="roi-widget-card reveal" style="transition-delay: 200ms;">
-          <h3 class="roi-title-widget">Interactive Estimate</h3>
-          <div class="roi-control-group">
-            <div class="roi-label-flex">
-              <span>Class Size</span>
-              <span class="roi-val-display" id="class-size-display font-sans">45 Students</span>
-            </div>
-            <input type="range" class="roi-slider" id="class-size-slider" min="15" max="300" value="45">
-          </div>
-          
-          <div class="roi-outputs">
-            <div class="roi-out-card">
-              <div class="roi-out-label font-sans">Monthly Data Points</div>
-              <div class="roi-out-val" id="monthly-points">16,200</div>
-            </div>
-            <div class="roi-out-card">
-              <div class="roi-out-label font-sans">Unseen Reading Hours</div>
-              <div class="roi-out-val" id="unseen-hours">540 Hrs</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="trust-badges-row">
-          <div class="trust-badge font-sans">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            FERPA Compliant
-          </div>
-          <div class="trust-badge font-sans">
-            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Canvas Integrated
-          </div>
-          <div class="trust-badge font-sans">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            Blackboard Sync
-          </div>
-          <div class="trust-badge font-sans">
-            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            LTI 1.3 Certified
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ABOUT SECTION (EDITORIAL) -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-editorial-grid">
-          <div class="about-photo-wrapper reveal">
-            <div class="about-frame-accent"></div>
-            <img src="assets/larry_harper.jpeg" alt="L. B. Harper III Portrait">
-            <div class="about-badge">Founder &amp; Manager</div>
-          </div>
-          
-          <div class="about-editorial-text reveal" style="transition-delay: 200ms;">
-            <div class="section-eyebrow">About Chapter</div>
-            <h2 class="section-title">One thing,<br>done exceptionally well</h2>
-            <p>Chapter Reading LLC was founded on a straightforward conviction: the most valuable thing a reading platform can offer universities is not content delivery – it's meaningful data about whether students are actually learning.</p>
-            <p>We do one thing exceptionally well: capturing and presenting aggregate classroom-level comprehension data that helps professors teach better. That singular focus, forged from experience inside university classrooms, drives every product decision we make.</p>
-            <p>Chapter is not built to replace thinking. It is built to deepen it.</p>
-            
-            <div class="about-founder-meta">
-              <div class="founder-signature">L. B. Harper III</div>
-              <div class="founder-title">Founder &amp; Manager, Chapter Reading LLC</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="about-origin">
-          <div class="about-origin-text reveal">
-            <div class="section-eyebrow">Our Story</div>
-            <h3 class="about-origin-title">Where it all began</h3>
-            <p>Chapter began not as a business idea, but as a personal solution. I originally set out to build a reading platform for my mother – something that would make reading feel less overwhelming and more accessible, while still preserving the value of truly engaging with a text.</p>
-            <p>That initial intention shaped everything. Instead of creating a tool that shortcuts reading, Chapter was designed to support it – to guide, clarify, and encourage deeper interaction with material.</p>
-            <p>What started as an effort to help one person read better evolved into a platform built to help anyone approach reading with confidence, structure, and purpose.</p>
-          </div>
-          <div class="about-origin-photo reveal" style="transition-delay: 200ms;">
-            <img src="assets/larry_and_mother.jpeg" alt="Larry and his mother, the inspiration behind Chapter">
-            <div class="about-origin-caption">Larry &amp; his mother, the inspiration behind Chapter</div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+
 
     <!-- TEAM SECTION (BENTO GRID OVERHAUL) -->
     <section class="team" id="team">
       <div class="crosshair crosshair-tl">+</div>
       <div class="crosshair crosshair-tr">+</div>
-      <div class="container">
-        <div class="platform-header reveal">
+      <div class="container process-layout">
+        <div class="process-sticky-left reveal">
           <div class="section-eyebrow">Our Team</div>
-          <h2 class="section-title">The people building Chapter</h2>
+          <h2 class="section-title">Who's building chapter</h2>
           <p class="section-desc">A small, focused team of engineers and builders working to give educators real insight into student comprehension and students better tools to engage with their readings.</p>
         </div>
 
@@ -2192,48 +2825,48 @@ footer {
         <div class="faq-list reveal" style="transition-delay: 100ms;">
           <div class="faq-item">
             <div class="faq-header">
-              <h3>Is Chapter FERPA-compliant?</h3>
+              <h3>What analytics do educators receive?</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="faq-body">
               <div class="faq-content">
-                <p>Yes. Chapter is fully FERPA-compliant. We prioritize student privacy by design, focusing on aggregate comprehension datasets and removing individual student surveillance vectors.</p>
+                <p>Educators will have a robust set of analytics that include average reading time, page hotspots (e.g., which pages get the most engagement from students), which concepts and themes students engage the most with and why, and a comprehension accuracy report.</p>
               </div>
             </div>
           </div>
           
           <div class="faq-item">
             <div class="faq-header">
-              <h3>Does Chapter integrate with our existing LMS?</h3>
+              <h3>How does Chapter help students?</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="faq-body">
               <div class="faq-content">
-                <p>Yes. We integrate seamlessly with major Learning Management Systems, including Canvas, Blackboard, and Moodle, allowing automatic sync of course readings and class rosters.</p>
+                <p>Chapter provides educators the information necessary to help tailor their efforts toward accommodating students. The goal is to help educators help students.</p>
               </div>
             </div>
           </div>
           
           <div class="faq-item">
             <div class="faq-header">
-              <h3>What file formats does the platform support?</h3>
+              <h3>For what kind of students is Chapter best for?</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="faq-body">
               <div class="faq-content">
-                <p>The upload portal supports PDFs, Word documents, and standard web pages. Chapter automatically parses and displays them in our distraction-free reader interface.</p>
+                <p>For Chapter to be successful, it assumes that the student can read. Chapter is not a tool designed to help students to read and develop fluency. Its primary focus to help educators focus their efforts on where students need it most.</p>
               </div>
             </div>
           </div>
           
           <div class="faq-item">
             <div class="faq-header">
-              <h3>How is student reading data tracked?</h3>
+              <h3>When will Chapter be available?</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="faq-body">
               <div class="faq-content">
-                <p>We track engagement metrics (scroll velocity, focus-page times, and repeat passes) in the background without intrusive trackers or cameras. This is compiled into aggregated classroom-level comprehension heatmaps.</p>
+                <p>Our team is working daily to ensure that Chapter is available for the year of 2026.</p>
               </div>
             </div>
           </div>
@@ -2257,59 +2890,81 @@ footer {
   <footer>
     <div class="container">
       <div class="footer-top">
+        <!-- Left Column: Brand & Links -->
         <div class="footer-brand font-sans">
-          <div class="footer-logo-badge">
-            <img src="assets/logo.jpeg" alt="Chapter Footer Logo">
+          <div class="footer-logo-brand">
+            <img src="assets/logo.png" alt="Chapter Logo">
+            <span class="footer-brand-text">Chapter</span>
           </div>
-          <p class="footer-tagline">Close the gap between assigned readings and actual student comprehension.</p>
+          <ul class="footer-links-list">
+            <li><a href="#how">How It Works</a></li>
+            <li><a href="#product">Platform Overview</a></li>
+            <li><a href="#team">Meet Our Team</a></li>
+          </ul>
         </div>
-        
-        <div class="footer-links-grid font-sans">
-          <div>
-            <h4 class="footer-col-title font-sans">Platform</h4>
-            <ul class="footer-menu">
-              <li><a href="#how">How It Works</a></li>
-              <li><a href="#product">Platform Overview</a></li>
-            </ul>
+
+        <!-- Middle Column: Contact Details -->
+        <div class="footer-contact font-sans">
+          <div class="contact-group">
+            <span class="contact-label">TEL</span>
+            <a href="tel:6316197137" class="contact-value">631 619 7137</a>
           </div>
-          <div>
-            <h4 class="footer-col-title font-sans font-sans">Company</h4>
-            <ul class="footer-menu">
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#team font-sans">Our Team</a></li>
-            </ul>
+          <div class="contact-group">
+            <span class="contact-label">EMAIL</span>
+            <a href="mailto:chapter@yourchapter.net" class="contact-value">chapter@yourchapter.net</a>
           </div>
-          <div>
-            <h4 class="footer-col-title font-sans font-sans">Support</h4>
-            <ul class="footer-menu font-sans font-sans">
-              <li><a href="https://calendly.com/contactlarryjr" target="_blank">Contact Support</a></li>
-            </ul>
+          <div class="contact-group">
+            <span class="contact-label">ADDRESS</span>
+            <address class="contact-value">
+              914 Railroad Ave<br>
+              Tallahassee, FL 32310
+            </address>
           </div>
+        </div>
+
+        <!-- Right Column: Subscribe Form -->
+        <div class="footer-subscribe font-sans">
+          <h4 class="subscribe-title">SUBSCRIBE</h4>
+          <p class="subscribe-desc">Sign up to receive Chapter news, learning insights, and updates.</p>
+          <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+            <div class="form-group">
+              <label for="subscribe-email" class="input-label">EMAIL *</label>
+              <input type="email" id="subscribe-email" class="subscribe-input" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-checkbox-group">
+              <input type="checkbox" id="subscribe-agree" class="subscribe-checkbox" required>
+              <label for="subscribe-agree" class="checkbox-label">Yes, subscribe me to your newsletter. *</label>
+            </div>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          </form>
         </div>
       </div>
-      
+
+      <!-- Footer Bottom -->
       <div class="footer-bottom font-sans">
-        <div class="footer-copy">&copy; 2026 Chapter Reading LLC. All rights reserved.</div>
-        <div class="footer-social">
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans font-sans font-sans">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg font-sans font-sans">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
+        <div class="footer-bottom-left">
+          <div class="footer-legal-links">
+            <a href="#">PRIVACY POLICY</a>
+            <a href="#">TERMS OF SERVICE</a>
+            <a href="#">ACCESSIBILITY STATEMENT</a>
+          </div>
+          <p class="footer-copyright">&copy; 2026 by Chapter Reading LLC. Powered and secured by Chapter.</p>
         </div>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+        <div class="footer-bottom-right">
+          <div class="footer-social-icons">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -2340,98 +2995,337 @@ document.addEventListener("DOMContentLoaded", () => {
   handleScrollNavbar();
 
   
-  // 2. INTERACTIVE PLATFORM PRODUCT TOUR (WITH ZOOMING)
+  // 2. INTERACTIVE PLATFORM PRODUCT TOUR (WITH LIVE ANIMATIONS)
   const tourItems = document.querySelectorAll(".tour-menu-item");
-  const tourMockupImg = document.getElementById("tour-mockup-img");
-  const hotspots = document.querySelectorAll(".hotspot");
+  const readerMockup = document.querySelector(".platform .reader-mockup");
+  const analyticsMockup = document.querySelector(".platform .analytics-mockup");
+  const activeSimulations = new Map();
 
-  const updateHotspots = (tourIndex) => {
-    // Hide all first
-    hotspots.forEach(el => el.classList.remove("active"));
+  function startReaderSimulation(mockup) {
+    stopReaderSimulation(mockup);
+
+    const container = mockup.querySelector(".live-reader-text");
+    const paragraphs = mockup.querySelector(".lr-paragraphs");
+    const cursor = mockup.querySelector(".live-reader-cursor");
+    if (!container || !paragraphs || !cursor) return;
+
+    const span1 = paragraphs.querySelector(".lr-highlight-under");
+    const span2 = paragraphs.querySelector(".lr-highlight-yellow");
+    const span3 = paragraphs.querySelector(".lr-highlight-target");
+    if (!span1 || !span2 || !span3) return;
+
+    // Set shared classes for live highlighting
+    [span1, span2, span3].forEach(span => {
+      span.classList.add("lr-live-highlight");
+      span.style.backgroundSize = "0% 100%";
+    });
+
+    const timeouts = [];
+    const schedule = (fn, delay) => {
+      timeouts.push(setTimeout(fn, delay));
+    };
+
+    const parentRect = paragraphs.getBoundingClientRect();
+    const getCoords = (span) => {
+      const r = span.getBoundingClientRect();
+      return {
+        startLeft: r.left - parentRect.left,
+        endLeft: r.right - parentRect.left,
+        top: r.top - parentRect.top + (r.height / 2) - 8
+      };
+    };
+
+    const loop = () => {
+      // 0. Reset State
+      container.scrollTo({ top: 0, behavior: "smooth" });
+      [span1, span2, span3].forEach(s => s.style.backgroundSize = "0% 100%");
+      cursor.style.transition = "none";
+      cursor.style.opacity = "0";
+      cursor.style.left = "0px";
+      cursor.style.top = "0px";
+
+      // 1. First Highlight
+      schedule(() => {
+        const coords = getCoords(span1);
+        cursor.style.transition = "none";
+        cursor.style.left = coords.startLeft + "px";
+        cursor.style.top = coords.top + "px";
+        cursor.offsetHeight; // force reflow
+        
+        cursor.style.transition = "left 1.2s linear, top 0.4s ease, opacity 0.3s ease";
+        cursor.style.opacity = "1";
+        
+        schedule(() => {
+          cursor.style.left = coords.endLeft + "px";
+          span1.style.backgroundSize = "100% 100%";
+        }, 100);
+      }, 1000);
+
+      // Hide cursor after first highlight
+      schedule(() => {
+        cursor.style.opacity = "0";
+      }, 2400);
+
+      // 2. Second Highlight
+      schedule(() => {
+        const coords = getCoords(span2);
+        cursor.style.transition = "none";
+        cursor.style.left = coords.startLeft + "px";
+        cursor.style.top = coords.top + "px";
+        cursor.offsetHeight;
+
+        cursor.style.transition = "left 1s linear, top 0.4s ease, opacity 0.3s ease";
+        cursor.style.opacity = "1";
+
+        schedule(() => {
+          cursor.style.left = coords.endLeft + "px";
+          span2.style.backgroundSize = "100% 100%";
+        }, 100);
+      }, 3200);
+
+      // Hide cursor after second highlight
+      schedule(() => {
+        cursor.style.opacity = "0";
+      }, 4400);
+
+      // 3. Smooth Scroll Down
+      schedule(() => {
+        container.scrollTo({ top: 120, behavior: "smooth" });
+      }, 4800);
+
+      // 4. Third Highlight (target)
+      schedule(() => {
+        const coords = getCoords(span3);
+        cursor.style.transition = "none";
+        cursor.style.left = coords.startLeft + "px";
+        cursor.style.top = coords.top + "px";
+        cursor.offsetHeight;
+
+        cursor.style.transition = "left 1.5s linear, top 0.4s ease, opacity 0.3s ease";
+        cursor.style.opacity = "1";
+
+        schedule(() => {
+          cursor.style.left = coords.endLeft + "px";
+          span3.style.backgroundSize = "100% 100%";
+        }, 100);
+      }, 6000);
+
+      // Hide cursor after third highlight
+      schedule(() => {
+        cursor.style.opacity = "0";
+      }, 7700);
+
+      // Loop back
+      schedule(loop, 9000);
+    };
+
+    // Start the simulation loop
+    loop();
+
+    activeSimulations.set(mockup, timeouts);
+  }
+
+  function stopReaderSimulation(mockup) {
+    const timeouts = activeSimulations.get(mockup);
+    if (timeouts) {
+      timeouts.forEach(clearTimeout);
+      activeSimulations.delete(mockup);
+    }
     
-    // Delayed show to match the image transition
+    const container = mockup.querySelector(".live-reader-text");
+    const cursor = mockup.querySelector(".live-reader-cursor");
+    if (container) container.scrollTo({ top: 0 });
+    if (cursor) {
+      cursor.style.opacity = "0";
+      cursor.style.left = "0px";
+      cursor.style.top = "0px";
+    }
+    mockup.querySelectorAll(".lr-highlight-under, .lr-highlight-yellow, .lr-highlight-target").forEach(span => {
+      span.style.backgroundSize = "0% 100%";
+    });
+  }
+
+  // --- Manual Interactive Events ---
+  // 1. Interactive Text Spans (Click to highlight)
+  document.querySelectorAll(".interactive-text").forEach(span => {
+    // Set initial class for background gradient styling
+    span.classList.add("lr-live-highlight");
+    span.addEventListener("click", function(e) {
+      e.stopPropagation();
+      this.classList.toggle("active");
+    });
+  });
+
+  // 2. Interactive Symbols (Click to animate slightly)
+  document.querySelectorAll(".interactive-symbol").forEach(sym => {
+    sym.addEventListener("click", function(e) {
+      e.stopPropagation();
+      this.style.transform = "scale(0.8)";
+      setTimeout(() => {
+        this.style.transform = "";
+      }, 150);
+    });
+  });
+
+  const runTourAnimation = (tourIndex) => {
+    // Reset all animations/active states first
+    readerMockup.classList.remove("active", "animate-highlight");
+    analyticsMockup.classList.remove("active", "animate-metrics");
+    stopReaderSimulation(readerMockup);
+
+    // Force browser DOM recalculation to trigger animations on tab transition
     setTimeout(() => {
-      const activeHotspot = document.getElementById(`hotspot-feature-${tourIndex}`);
-      if (activeHotspot) activeHotspot.classList.add("active");
-    }, 400);
+      if (tourIndex === "0") {
+        // Feature 1: Clutter-Free Reader
+        readerMockup.classList.add("active");
+      } else if (tourIndex === "1") {
+        // Feature 2: Active Annotations
+        readerMockup.classList.add("active", "animate-highlight");
+        startReaderSimulation(readerMockup);
+      } else if (tourIndex === "2") {
+        // Feature 3: Professor Analytics
+        analyticsMockup.classList.add("active", "animate-metrics");
+        
+        const completionVal = analyticsMockup.querySelector(".lm-val-1");
+        const durationVal = analyticsMockup.querySelector(".lm-val-2");
+        const highlightsVal = analyticsMockup.querySelector(".lm-val-3");
+        
+        completionVal.textContent = "0%";
+        durationVal.textContent = "0%";
+        highlightsVal.textContent = "0%";
+        
+        animateValue(completionVal, 0, 92, 1800);
+        animateValue(durationVal, 0, 42, 1800);
+        animateValue(highlightsVal, 0, 80, 1800);
+      }
+    }, 50);
   };
+
+  // Helper function to animate number counters
+  function animateValue(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+      obj.textContent = Math.floor(easeProgress * (end - start) + start) + "%";
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
 
   tourItems.forEach(item => {
     item.addEventListener("click", () => {
-      if (item.classList.contains("active")) return; // Do nothing if already active
+      if (item.classList.contains("active")) return;
       
       const tourIndex = item.getAttribute("data-tour");
-      const imgPath = item.getAttribute("data-img");
       
-      // Update menu active states
       tourItems.forEach(el => el.classList.remove("active"));
       item.classList.add("active");
 
-      // Smoothly transition image source and transform zoom coordinates
-      if (tourMockupImg) {
-        tourMockupImg.style.opacity = "0.3";
-        
-        // Update the active hotspots
-        updateHotspots(tourIndex);
-        
-        setTimeout(() => {
-          // Swap image file
-          tourMockupImg.src = imgPath;
-          tourMockupImg.setAttribute("alt", item.querySelector("h3").innerText);
-          
-          // Remove all previous zoom classes
-          tourMockupImg.className = "tour-mockup-img";
-          
-          // Add new zoom-state class
-          tourMockupImg.classList.add(`zoom-state-${tourIndex}`);
-          
-          // Fade back in
-          tourMockupImg.style.opacity = "1";
-        }, 200);
+      runTourAnimation(tourIndex);
+    });
+  });
+
+  // Initial trigger for active tour item
+  const initialActive = document.querySelector(".tour-menu-item.active");
+  if (initialActive) {
+    const initialIndex = initialActive.getAttribute("data-tour");
+    runTourAnimation(initialIndex);
+  }
+
+  // --- Fullscreen Modal Logic ---
+  const tourViewport = document.querySelector(".platform .tour-viewport");
+  const tourScreenWrap = document.querySelector(".platform .tour-screen-wrap");
+  const modalCloseBtn = document.querySelector(".modal-close-btn");
+
+  if (tourViewport && tourScreenWrap && modalCloseBtn) {
+    // Open modal when viewport is clicked
+    tourViewport.addEventListener("click", (e) => {
+      // Don't trigger if clicking inside the interactive features (symbols, etc)
+      if (e.target.closest(".interactive-symbol") || e.target.closest(".interactive-text") || e.target.closest(".interactive-metric") || e.target.closest(".modal-close-btn")) {
+        return;
+      }
+      tourScreenWrap.classList.add("is-fullscreen");
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    });
+
+    // Close modal via button
+    modalCloseBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      tourScreenWrap.classList.remove("is-fullscreen");
+      document.body.style.overflow = "";
+    });
+
+    // Close modal via Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && tourScreenWrap.classList.contains("is-fullscreen")) {
+        tourScreenWrap.classList.remove("is-fullscreen");
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
+
+  // 3. UNIFIED HERO FLIP TRIGGER
+  const heroFlipContainer = document.querySelector(".hero-flip-container");
+  const heroMockup = document.querySelector(".hero-flip-back .reader-mockup");
+
+  if (heroFlipContainer) {
+    heroFlipContainer.addEventListener("click", () => {
+      heroFlipContainer.classList.toggle("flipped");
+    });
+  }
+
+  // Prevent card flip when clicking inside the live browser mockup body/content
+  const heroMockupWrapper = document.querySelector(".hero-flip-back .live-mockup-wrapper");
+  if (heroMockupWrapper) {
+    heroMockupWrapper.addEventListener("click", (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Handle interactive "Hide Notes" button toggles across mockups
+  document.querySelectorAll(".lr-notes-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent card flip or tab navigation
+      const mockup = btn.closest(".live-mockup");
+      if (mockup) {
+        mockup.classList.toggle("notes-hidden");
+        btn.textContent = mockup.classList.contains("notes-hidden") ? "Show Notes" : "Hide Notes";
       }
     });
   });
 
-
-  // 3. COMPREHENSION IMPACT CALCULATOR
-  const classSizeSlider = document.getElementById("class-size-slider");
-  const classSizeDisplay = document.getElementById("class-size-display");
-  const monthlyPoints = document.getElementById("monthly-points");
-  const unseenHours = document.getElementById("unseen-hours");
-
-  const updateCalculator = () => {
-    if (!classSizeSlider) return;
-    const size = parseInt(classSizeSlider.value);
-    
-    // Update label
-    if (classSizeDisplay) classSizeDisplay.innerText = `${size} Students`;
-    
-    // Monthly Data Points: 4 readings * 90 tracked metrics per student
-    const pointsVal = size * 4 * 90;
-    if (monthlyPoints) monthlyPoints.innerText = pointsVal.toLocaleString();
-    
-    // Unseen reading hours: 4 readings * 3 hours per reading
-    const hoursVal = size * 4 * 3;
-    if (unseenHours) unseenHours.innerText = `${hoursVal.toLocaleString()} Hrs`;
-  };
-
-  if (classSizeSlider) {
-    classSizeSlider.addEventListener("input", updateCalculator);
-    updateCalculator();
-  }
+  // Handle interactive tab switching across mockups
+  document.querySelectorAll(".lr-tab").forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // prevent card flip
+      const tabGroup = tab.closest(".lr-sidebar-tabs");
+      if (tabGroup) {
+        tabGroup.querySelectorAll(".lr-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+      }
+    });
+  });
 
 
   // 4. SCROLL REVEAL (INTERSECTION OBSERVER)
   const revealElements = document.querySelectorAll(".reveal");
   
   if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("active");
-          }, idx * 60);
-          observer.unobserve(entry.target);
+          }, idx * 40); // slightly faster stagger
+        } else {
+          entry.target.classList.remove("active");
         }
       });
     }, {
@@ -2493,6 +3387,29 @@ document.addEventListener("DOMContentLoaded", () => {
       // Reset transform
       btn.style.transform = "translate(0px, 0px)";
     });
+  });
+
+  // 7. PROCESS ACCORDION
+  const processItems = document.querySelectorAll(".process-accordion-item");
+  processItems.forEach(item => {
+    const header = item.querySelector(".process-header");
+    const body = item.querySelector(".process-body");
+    
+    if (header && body) {
+      header.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+        
+        if (isOpen) return; // Prevent collapsing the active step
+        
+        // Close all
+        processItems.forEach(otherItem => {
+          otherItem.classList.remove("is-open");
+        });
+        
+        // Open current
+        item.classList.add("is-open");
+      });
+    }
   });
 });
   </script>
