@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter — On the same page. | Reading Engagement Platform</title>
+  <title>Chapter — because reading matters. | Reading Engagement Platform</title>
   <meta name="description" content="Chapter provides universities and educators with real-time aggregate student reading comprehension data to close the learning gap.">
   <style>
 /* -------------------------------------------------------------
@@ -2019,11 +2019,27 @@ a.contact-value:hover {
 }
 
 /* Annotation highlights */
-.lr-highlight-under,
-.lr-highlight-yellow,
-.lr-highlight-target {
+.lr-highlight-under {
+  --hl-color: rgba(76, 175, 80, 0.35);
   position: relative;
-  background-color: rgba(255, 235, 59, 0.25);
+  background-color: var(--hl-color);
+  transition: background-color 0.3s ease;
+  padding: 1px 0;
+  text-decoration: underline;
+  text-decoration-color: #4CAF50;
+  text-decoration-thickness: 2px;
+}
+.lr-highlight-yellow {
+  --hl-color: rgba(255, 235, 59, 0.35);
+  position: relative;
+  background-color: var(--hl-color);
+  transition: background-color 0.3s ease;
+  padding: 1px 0;
+}
+.lr-highlight-target {
+  --hl-color: rgba(3, 169, 244, 0.35);
+  position: relative;
+  background-color: var(--hl-color);
   transition: background-color 0.3s ease;
   padding: 1px 0;
 }
@@ -2037,7 +2053,7 @@ a.contact-value:hover {
 
 /* Dynamic Live Highlight style controlled via JS simulation */
 .lr-live-highlight {
-  background-image: linear-gradient(rgba(255, 235, 59, 0.35), rgba(255, 235, 59, 0.35)) !important;
+  background-image: linear-gradient(var(--hl-color), var(--hl-color)) !important;
   background-position: 0% 0% !important;
   background-repeat: no-repeat !important;
   background-size: 0% 100%;
@@ -2372,7 +2388,7 @@ a.contact-value:hover {
       <div class="container hero-grid">
         <div class="hero-left reveal">
           <div class="hero-eyebrow">Reading Engagement Platform</div>
-          <h1><em>Chapter:</em><br>On the same page.</h1>
+          <h1><em>Chapter:</em><br>because reading matters.</h1>
           <p class="hero-sub">Chapter gives educators the data they need to understand what students actually comprehend from their readings, and gives students the tools to engage more deeply with the material.</p>
           <div class="hero-actions">
             <a href="#how" class="btn btn-primary">
@@ -2431,11 +2447,10 @@ a.contact-value:hover {
                               <span class="sym-circle">○</span>
                             </div>
                             <div class="lr-paragraphs">
-                              <h5>Book I</h5>
-                              <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, <span class="lr-highlight-under">we turned in the direction of the city;</span> and at that instant Polemarchus... </p>
-                              <p>The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait. I turned round, and asked him <span class="lr-highlight-yellow">where his master was.</span> There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
+                              <p><span class="lr-highlight-yellow">I went down yesterday to the Piraeus with Glaucon the son of Ariston</span>, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, we turned in the direction of the city; and at that instant Polemarchus... </p>
+                              <p>The servant took hold of me by the cloak behind, and said: <span class="lr-highlight-under">Polemarchus desires you to wait.</span> I turned round, and asked him where his master was. There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
+                              <p>May there not be the alternative, I said, that we may persuade you to let us go? <span class="lr-highlight-target">But can you persuade us, if we refuse to listen to you?</span> he said. Certainly not, replied Glaucon. Then we are not going to listen; of that you may be assured.</p>
                               <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city. You are not far wrong, I said. But do you see, he rejoined, how many we are? Of course. And are you stronger than all these? for if not, you will have to remain where you are.</p>
-                              <p>May there not be the alternative, I said, that we may persuade you to let us go? But can you persuade us, if we refuse to listen to you? he said. Certainly not, replied Glaucon. <span class="lr-highlight-target">Then we are not going to listen; of that you may be assured.</span></p>
                               
                               <!-- Pulse Cursor for Feature 2 -->
                               <div class="live-reader-cursor"></div>
@@ -2510,7 +2525,7 @@ a.contact-value:hover {
           <div class="process-step process-accordion-item is-open reveal" style="transition-delay: 100ms;">
             <div class="process-header">
               <span class="process-num">01</span>
-              <h3>Upload &amp; Set Objectives</h3>
+              <h3>Upload &amp; Define Outcomes</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="process-body">
@@ -2520,21 +2535,21 @@ a.contact-value:hover {
           <div class="process-step process-accordion-item reveal" style="transition-delay: 200ms;">
             <div class="process-header">
               <span class="process-num">02</span>
-              <h3>Students Read &amp; Engage</h3>
+              <h3>Students Actively Annotate</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="process-body">
-              <p>Students read within Chapter's clean interface, highlighting, annotating, and using reading tools. Every interaction is tracked: time spent, scroll depth, notes taken, re-reads.</p>
+              <p>Students read and employ reading tools.</p>
             </div>
           </div>
           <div class="process-step process-accordion-item reveal" style="transition-delay: 300ms;">
             <div class="process-header">
               <span class="process-num">03</span>
-              <h3>Educators Receive Insights</h3>
+              <h3>Actionable Educator Insights</h3>
               <span class="faq-icon-indicator"></span>
             </div>
             <div class="process-body">
-              <p>Educators receive analytics showing reading comprehension and gaps that improve instruction.</p>
+              <p>Analytics help educators make more informed decisions.</p>
             </div>
           </div>
         </div>
@@ -2637,10 +2652,9 @@ a.contact-value:hover {
                         <span class="sym-circle interactive-symbol" title="Add Note">○</span>
                       </div>
                       <div class="lr-paragraphs">
-                        <p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, <span class="lr-highlight-under interactive-text" title="Click to highlight">we turned in the direction of the city;</span> and at that instant Polemarchus... </p>
-                        <p>The servant took hold of me by the cloak behind, and said: Polemarchus desires you to wait. I turned round, and asked him <span class="lr-highlight-yellow interactive-text" title="Click to highlight">where his master was.</span> There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
-                        <p>Polemarchus said to me: I perceive, Socrates, that you and your companion are already on your way to the city. You are not far wrong, I said. But do you see, he rejoined, how many we are? Of course. And are you stronger than all these? for if not, you will have to remain where you are.</p>
-                        <p>May there not be the alternative, I said, that we may persuade you to let us go? But can you persuade us, if we refuse to listen to you? he said. Certainly not, replied Glaucon. <span class="lr-highlight-target interactive-text" title="Click to highlight">Then we are not going to listen; of that you may be assured.</span></p>
+                        <p><span class="lr-highlight-yellow interactive-text" title="Click to highlight">I went down yesterday to the Piraeus with Glaucon the son of Ariston</span>, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival, which was a new thing. I was delighted with the procession of the inhabitants; but that of the Thracians was equally, if not more, beautiful. When we had finished our prayers and viewed the spectacle, we turned in the direction of the city; and at that instant Polemarchus... </p>
+                        <p>The servant took hold of me by the cloak behind, and said: <span class="lr-highlight-under interactive-text" title="Click to highlight">Polemarchus desires you to wait.</span> I turned round, and asked him where his master was. There he is, said the youth, coming after you, if you will only wait. Certainly we will, said Glaucon...</p>
+                        <p>May there not be the alternative, I said, that we may persuade you to let us go? <span class="lr-highlight-target interactive-text" title="Click to highlight">But can you persuade us, if we refuse to listen to you?</span> he said. Certainly not, replied Glaucon. Then we are not going to listen; of that you may be assured.</p>
                         
                         <!-- Pulse Cursor for Feature 2 -->
                         <div class="live-reader-cursor"></div>
@@ -2747,7 +2761,7 @@ a.contact-value:hover {
               <div>
                 <div class="team-name">L. B. Harper III</div>
                 <div class="team-role">Founder &amp; Manager</div>
-                <p class="team-bio font-sans">Founder of Chapter Reading LLC and graduating History senior at FSU. Larry built Chapter around a single conviction: universities deserve real data on how their students learn.</p>
+                <p class="team-bio font-sans">Graduate of Florida State University.</p>
               </div>
               <a href="https://www.linkedin.com/in/lbharper3/" target="_blank" rel="noopener" class="team-linkedin">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -3318,14 +3332,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const revealElements = document.querySelectorAll(".reveal");
   
   if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
             entry.target.classList.add("active");
           }, idx * 40); // slightly faster stagger
-        } else {
-          entry.target.classList.remove("active");
+          // Stop observing once revealed to prevent glitches when scrolling back up
+          observer.unobserve(entry.target);
         }
       });
     }, {
