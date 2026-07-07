@@ -2186,128 +2186,619 @@ a.contact-value:hover {
 }
 
 /* Analytics Mockup Styling */
+/* Analytics Mockup Styling */
 .analytics-mockup {
   background: var(--off-white);
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
-.live-analytics-header {
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--rule);
-  background: var(--white);
-  text-align: left;
+.analytics-mockup::-webkit-scrollbar {
+  width: 6px;
+}
+.analytics-mockup::-webkit-scrollbar-track {
+  background: transparent;
+}
+.analytics-mockup::-webkit-scrollbar-thumb {
+  background: rgba(26, 92, 56, 0.2);
+  border-radius: 10px;
+}
+.analytics-mockup::-webkit-scrollbar-thumb:hover {
+  background: rgba(26, 92, 56, 0.4);
 }
 
-.live-analytics-header h4 {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 0.15rem 0;
+.analytics-mockup .da-app {
+  padding: 1.5rem 1.75rem 2rem;
 }
 
-.analytics-sub {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.7rem;
-  color: var(--slate);
-}
-
-.live-analytics-body {
-  padding: 2.25rem 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-  height: calc(100% - 60px);
-  box-sizing: border-box;
-  justify-content: center;
-}
-
-.live-metric-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;
-}
-
-.lm-label-wrap {
+/* Header */
+.analytics-mockup .da-head {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.analytics-mockup .da-eyebrow {
   font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 0.4rem;
 }
-
-.lm-label {
-  font-size: 0.78rem;
-  font-weight: 600;
+.analytics-mockup .da-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0;
+}
+.analytics-mockup .da-meta {
+  margin-top: 0.4rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
   color: var(--slate);
+  margin-bottom: 0;
 }
-
-.lm-val {
-  font-size: 0.85rem;
-  font-weight: 800;
+.analytics-mockup .da-meta b {
+  font-weight: 700;
   color: var(--ink);
 }
-
-.lm-progress-track {
-  height: 8px;
-  background: rgba(0, 0, 0, 0.05);
+.analytics-mockup .da-head-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.analytics-mockup .da-pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  background: var(--white);
+  border: 1px solid var(--rule);
   border-radius: 100px;
-  position: relative;
+  padding: 0.5rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.analytics-mockup .da-pill.solid {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--white);
+}
+.analytics-mockup .da-pill svg {
+  width: 12px;
+  height: 12px;
 }
 
-.lm-progress-bar {
-  height: 100%;
-  background: var(--green-dark);
+/* KPIs */
+.analytics-mockup .da-kpis {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.analytics-mockup .da-kpi {
+  background: var(--white);
+  border: 1px solid var(--rule-light);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.analytics-mockup .da-kpi-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.analytics-mockup .da-kpi-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.analytics-mockup .da-kpi-value small {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--slate);
+  margin-left: 0.25rem;
+}
+.analytics-mockup .da-kpi-note {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--slate);
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.analytics-mockup .da-kpi-note.good {
+  color: var(--green-mid);
+  font-weight: 700;
+}
+
+/* KPI inner components */
+.analytics-mockup .da-time-compare {
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.5rem;
+}
+.analytics-mockup .da-tc-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 35px;
+  align-items: center;
+  gap: 0.5rem;
+}
+.analytics-mockup .da-tc-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--slate);
+}
+.analytics-mockup .da-tc-track {
+  height: 6px;
+  background: var(--green-pale);
   border-radius: 100px;
+  overflow: hidden;
+}
+.analytics-mockup .da-tc-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: var(--green-dark);
   width: 0%;
   transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.analytics-mockup .da-tc-fill.expected {
+  background: rgba(45, 122, 82, 0.3);
+}
+.analytics-mockup.animate-metrics .da-tc-fill-class {
+  width: 100%;
+}
+.analytics-mockup.animate-metrics .da-tc-fill-expected {
+  width: 86%;
+}
+.analytics-mockup .da-tc-min {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: right;
+}
+.analytics-mockup .da-delta {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #a06b13;
+  background: #f6ecd8;
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+  align-self: flex-start;
+}
+.analytics-mockup .da-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+.analytics-mockup .da-ring {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: conic-gradient(var(--green-dark) 0 331deg, var(--green-pale) 331deg 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.analytics-mockup .da-ring .da-ring-val {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+.analytics-mockup .da-obj-dots {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+.analytics-mockup .da-obj-dots i {
+  flex: 1;
+  height: 6px;
+  border-radius: 100px;
+  background: var(--green-dark);
+}
+.analytics-mockup .da-obj-dots i.miss {
+  background: #f7e5e0;
+  border: 1px solid #a83c22;
+}
 
-.lm-slider-handle {
+/* Panels */
+.analytics-mockup .da-panel {
+  border: 1px solid var(--rule-light);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+.analytics-mockup .da-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.analytics-mockup .da-panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+.analytics-mockup .da-panel-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* Hotspots Chart */
+.analytics-mockup .da-chart {
+  position: relative;
+  padding-bottom: 1.8rem;
+}
+.analytics-mockup .da-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 80px;
+  border-bottom: 1px solid var(--rule);
+}
+.analytics-mockup .da-bar {
+  flex: 1;
+  position: relative;
+  background: var(--green-pale);
+  border-radius: 3px 3px 0 0;
+  transition: background 0.15s ease, height 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  height: 0% !important;
+}
+.analytics-mockup .da-bar:hover {
+  background: var(--green-mid);
+  opacity: 0.8;
+}
+.analytics-mockup.animate-metrics .da-bar {
+  height: var(--bar-height) !important;
+}
+.analytics-mockup .da-bar.active {
+  background: var(--green-dark);
+}
+.analytics-mockup .da-bar-labels {
+  display: flex;
+  gap: 6px;
+  margin-top: 0.4rem;
+}
+.analytics-mockup .da-bar-labels span {
+  flex: 1;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  color: var(--muted);
+  font-weight: 700;
+  cursor: pointer;
+}
+.analytics-mockup .da-bar-labels span.active {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+/* Scrub track */
+.analytics-mockup .da-scrub-track {
   position: absolute;
-  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--green-pale);
+  border-radius: 100px;
+}
+.analytics-mockup .da-scrub-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--green-dark);
+  border-radius: 100px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.analytics-mockup .da-handle {
+  position: absolute;
+  bottom: -6px;
   left: 0%;
-  width: 18px;
-  height: 18px;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
   background: var(--white);
   border: 3px solid var(--green-dark);
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  cursor: pointer;
-  transition: left 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(26, 92, 56, 0.25);
+  cursor: grab;
+  z-index: 10;
+  transition: left 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.analytics-mockup .da-handle:active {
+  cursor: grabbing;
+}
+.analytics-mockup .da-scrub-hint {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.analytics-mockup .da-scrub-hint svg {
+  width: 12px;
+  height: 12px;
 }
 
-.lm-slider-handle::after {
-  content: '';
+/* Page Preview */
+.analytics-mockup .da-preview {
+  margin-top: 1.2rem;
+  background: var(--off-white);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  position: relative;
+}
+.analytics-mockup .da-preview::before {
+  content: "";
   position: absolute;
-  top: -12px; left: -12px; right: -12px; bottom: -12px;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: var(--off-white);
+  border-left: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+}
+.analytics-mockup .da-preview-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.analytics-mockup .da-preview-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+.analytics-mockup .da-preview-stats {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  color: var(--slate);
+}
+.analytics-mockup .da-preview-stats b {
+  color: var(--green-dark);
+  font-weight: 700;
+}
+.analytics-mockup .da-passage {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--slate);
+  text-align: left;
+}
+.analytics-mockup .da-passage p {
+  margin: 0;
+}
+.analytics-mockup .da-passage p + p {
+  margin-top: 0.6rem;
+}
+.analytics-mockup .da-passage mark {
+  color: #43302a;
+  padding: 1px 3px;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.analytics-mockup .da-passage mark.hot-high {
+  background: #f6cdbe;
+}
+.analytics-mockup .da-passage mark.hot-mid {
+  background: #fbe0bd;
+}
+.analytics-mockup .da-passage mark.hot-low {
+  background: #fdf2c4;
+}
+
+.analytics-mockup .da-hotspot-key {
+  margin-top: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  color: var(--slate);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+}
+.analytics-mockup .da-hotspot-key .da-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.analytics-mockup .da-hotspot-key i {
+  width: 16px;
+  height: 8px;
+  border-radius: 2px;
+}
+.analytics-mockup .da-hotspot-key i.k-high {
+  background: #f6cdbe;
+}
+.analytics-mockup .da-hotspot-key i.k-mid {
+  background: #fbe0bd;
+}
+.analytics-mockup .da-hotspot-key i.k-low {
+  background: #fdf2c4;
+}
+
+/* Objectives Grid */
+.analytics-mockup .da-obj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+.analytics-mockup .da-obj-card {
+  background: var(--off-white);
+  border: 1px solid var(--rule-light);
+  border-radius: 8px;
+  padding: 1.2rem 1rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.analytics-mockup .da-pie {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  background: rgba(45, 122, 82, 0.12);
-  border: 1px solid rgba(45, 122, 82, 0.25);
-  pointer-events: none;
-  animation: pulseHandle 2s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.analytics-mockup .da-pie span {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.analytics-mockup .da-pie.grasped {
+  background: conic-gradient(var(--green-dark) 0 88%, var(--green-pale) 88% 100%);
+}
+.analytics-mockup .da-pie.developing {
+  background: conic-gradient(#a06b13 0 71%, #f6ecd8 71% 100%);
+}
+.analytics-mockup .da-pie.review {
+  background: conic-gradient(#a83c22 0 46%, #f7e5e0 46% 100%);
+}
+.analytics-mockup .da-obj-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.4;
+  min-height: 2.8rem;
+  margin: 0;
+}
+.analytics-mockup .da-badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 100px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+.analytics-mockup .da-badge.grasped {
+  background: var(--green-pale);
+  color: var(--green-dark);
+}
+.analytics-mockup .da-badge.developing {
+  background: #f6ecd8;
+  color: #a06b13;
+}
+.analytics-mockup .da-badge.review {
+  background: #f7e5e0;
+  color: #a83c22;
 }
 
-@keyframes pulseHandle {
-  0% { transform: scale(0.85); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(0.85); opacity: 0.8; }
+.analytics-mockup .da-report-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+}
+.analytics-mockup .da-report-summary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--slate);
+}
+.analytics-mockup .da-report-summary b {
+  color: var(--ink);
+  font-weight: 700;
+}
+.analytics-mockup .da-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.analytics-mockup .da-link svg {
+  width: 12px;
+  height: 12px;
 }
 
-/* Feature 3: Analytics animations */
-.analytics-mockup.animate-metrics .lm-bar-1 {
-  width: 92%;
-}
-
-.analytics-mockup.animate-metrics .lm-bar-2 {
-  width: 42%;
-}
-
-.analytics-mockup.animate-metrics .lm-slider-handle {
-  left: 42%;
-}
-
-.analytics-mockup.animate-metrics .lm-bar-3 {
-  width: 80%;
+@media (max-width: 860px) {
+  .analytics-mockup .da-app {
+    padding: 1rem 1rem;
+  }
+  .analytics-mockup .da-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .analytics-mockup .da-kpis {
+    grid-template-columns: 1fr;
+  }
+  .analytics-mockup .da-obj-grid {
+    grid-template-columns: 1fr;
+  }
+  .analytics-mockup .da-bar-labels span:nth-child(even) {
+    visibility: hidden;
+  }
 }
 
 /* Hide scrollbars for the live mockups to maintain clean browser dashboard aesthetics */
@@ -2436,7 +2927,7 @@ a.contact-value:hover {
                         </div>
                         
                         <div class="live-reader-body">
-                          <div class="live-reader-text">
+                          <div class="live-reader-text" data-lenis-prevent>
                             <div class="lr-symbols-col">
                               <span class="sym-star">★</span>
                               <span class="sym-help">?</span>
@@ -2460,7 +2951,7 @@ a.contact-value:hover {
                               <span class="lr-tab">AI</span>
                               <span class="lr-tab">Workspace</span>
                             </div>
-                            <div class="lr-sidebar-notes">
+                            <div class="lr-sidebar-notes" data-lenis-prevent>
                               <div class="lr-note-card">
                                 <span class="lr-note-quote">"Polemarchus said to me: I perceive, Socrates, that you and your companion are al..."</span>
                                 <span class="lr-note-text">Marked for analysis</span>
@@ -2641,7 +3132,7 @@ a.contact-value:hover {
                   </div>
                   
                   <div class="live-reader-body">
-                    <div class="live-reader-text">
+                    <div class="live-reader-text" data-lenis-prevent>
                       <div class="lr-symbols-col">
                         <span class="sym-star interactive-symbol" title="Highlight Key Idea">★</span>
                         <span class="sym-help interactive-symbol" title="Ask AI / Confusing">?</span>
@@ -2664,7 +3155,7 @@ a.contact-value:hover {
                         <span class="lr-tab">AI</span>
                         <span class="lr-tab">Workspace</span>
                       </div>
-                      <div class="lr-sidebar-notes">
+                      <div class="lr-sidebar-notes" data-lenis-prevent>
                         <div class="lr-note-card">
                           <span class="lr-note-quote">"Polemarchus said to me: I perceive, Socrates, that you and your companion are al..."</span>
                           <span class="lr-note-text">Marked for analysis</span>
@@ -2686,41 +3177,169 @@ a.contact-value:hover {
                 </div>
                 
                 <!-- FEATURE 3: Analytics Mockup -->
-                <div class="live-mockup analytics-mockup">
-                  <div class="live-analytics-header">
-                    <h4>The Republic</h4>
-                    <span class="analytics-sub">Classroom Insights & Reading Metrics</span>
-                  </div>
-                  
-                  <div class="live-analytics-body">
-                    <div class="live-metric-row interactive-metric" title="92% of students completed this chapter.">
-                      <div class="lm-label-wrap">
-                        <span class="lm-label">Completion Rate</span>
-                        <span class="lm-val lm-val-1">92%</span>
+                <div class="live-mockup analytics-mockup" data-lenis-prevent>
+                  <div class="da-app">
+
+                    <!-- Header -->
+                    <header class="da-head">
+                      <div>
+                        <div class="da-eyebrow">Reading analytics</div>
+                        <h1 class="da-title">The Republic</h1>
+                        <p class="da-meta">Books I–II &nbsp;·&nbsp; Assigned Jun 22 &nbsp;·&nbsp; <b>24 students</b></p>
                       </div>
-                      <div class="lm-progress-track">
-                        <div class="lm-progress-bar lm-bar-1"></div>
+                      <div class="da-head-actions">
+                        <span class="da-pill">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+                          Last 14 days
+                        </span>
+                        <span class="da-pill solid">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                          Export report
+                        </span>
                       </div>
+                    </header>
+
+                    <!-- KPI cards -->
+                    <div class="da-kpis">
+
+                      <div class="da-kpi">
+                        <div class="da-kpi-label">Average reading time</div>
+                        <div class="da-kpi-value"><span id="da-val-time">52</span><small>min per student</small></div>
+                        <div class="da-time-compare">
+                          <div class="da-tc-row">
+                            <span class="da-tc-name">Your class</span>
+                            <div class="da-tc-track"><div class="da-tc-fill da-tc-fill-class" style="width: 0%;"></div></div>
+                            <span class="da-tc-min">52m</span>
+                          </div>
+                          <div class="da-tc-row">
+                            <span class="da-tc-name">Expected</span>
+                            <div class="da-tc-track"><div class="da-tc-fill da-tc-fill-expected" style="width: 0%;"></div></div>
+                            <span class="da-tc-min">45m</span>
+                          </div>
+                        </div>
+                        <span class="da-delta">+7 min over expected pace</span>
+                      </div>
+
+                      <div class="da-kpi">
+                        <div class="da-kpi-label">Completion rate</div>
+                        <div class="da-ring-wrap">
+                          <div class="da-ring"><span class="da-ring-val">92%</span></div>
+                          <p class="da-kpi-note good" style="margin-top: 0;">22 of 24 students finished the assigned reading</p>
+                        </div>
+                      </div>
+
+                      <div class="da-kpi">
+                        <div class="da-kpi-label">Objectives grasped</div>
+                        <div class="da-kpi-value"><span id="da-val-objectives">2</span><small>of 3</small></div>
+                        <div class="da-obj-dots"><i></i><i></i><i class="miss"></i></div>
+                        <p class="da-kpi-note">One objective flagged for review</p>
+                      </div>
+
                     </div>
-                    <div class="live-metric-row interactive-metric" title="Average time spent actively reading is 42 mins.">
-                      <div class="lm-label-wrap">
-                        <span class="lm-label">Time-on-Page</span>
-                        <span class="lm-val lm-val-2">42%</span>
+
+                    <!-- Page hotspots -->
+                    <section class="da-panel">
+                      <div class="da-panel-head">
+                        <h2 class="da-panel-title">Page hotspots</h2>
+                        <span class="da-panel-sub">Engagement per page — highlights, notes, and re-reads</span>
                       </div>
-                      <div class="lm-progress-track">
-                        <div class="lm-progress-bar lm-bar-2"></div>
-                        <div class="lm-slider-handle"></div>
+
+                      <div class="da-chart">
+                        <div class="da-bars">
+                          <div class="da-bar" data-page="0" style="--bar-height: 44%;"></div>
+                          <div class="da-bar" data-page="1" style="--bar-height: 22%;"></div>
+                          <div class="da-bar" data-page="2" style="--bar-height: 58%;"></div>
+                          <div class="da-bar" data-page="3" style="--bar-height: 13%;"></div>
+                          <div class="da-bar" data-page="4" style="--bar-height: 34%;"></div>
+                          <div class="da-bar" data-page="5" style="--bar-height: 52%;"></div>
+                          <div class="da-bar active" data-page="6" style="--bar-height: 92%;"></div>
+                          <div class="da-bar" data-page="7" style="--bar-height: 30%;"></div>
+                          <div class="da-bar" data-page="8" style="--bar-height: 18%;"></div>
+                          <div class="da-bar" data-page="9" style="--bar-height: 62%;"></div>
+                          <div class="da-bar" data-page="10" style="--bar-height: 38%;"></div>
+                          <div class="da-bar" data-page="11" style="--bar-height: 15%;"></div>
+                          <div class="da-bar" data-page="12" style="--bar-height: 26%;"></div>
+                        </div>
+                        <div class="da-bar-labels">
+                          <span data-page="0">1</span>
+                          <span data-page="1">2</span>
+                          <span data-page="2">3</span>
+                          <span data-page="3">4</span>
+                          <span data-page="4">5</span>
+                          <span data-page="5">6</span>
+                          <span class="active" data-page="6">7</span>
+                          <span data-page="7">8</span>
+                          <span data-page="8">9</span>
+                          <span data-page="9">10</span>
+                          <span data-page="10">11</span>
+                          <span data-page="11">12</span>
+                          <span data-page="12">13</span>
+                        </div>
+                        <div class="da-scrub-track"></div>
+                        <div class="da-scrub-fill" style="width: 50%;"></div>
+                        <div class="da-handle" style="left: 50%;"></div>
                       </div>
-                    </div>
-                    <div class="live-metric-row interactive-metric" title="80% of required interactions completed on average.">
-                      <div class="lm-label-wrap">
-                        <span class="lm-label">Highlights Logged</span>
-                        <span class="lm-val lm-val-3">80%</span>
+
+                      <p class="da-scrub-hint">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 12h8m-8 0l3-3m-3 3l3 3m5-3l-3-3m3 3l-3 3"/></svg>
+                        Slide across pages — pages with student engagement open a preview
+                      </p>
+
+                      <!-- Page preview with hot spots -->
+                      <div class="da-preview">
+                        <div class="da-preview-head">
+                          <span class="da-preview-title" id="da-preview-title">Page 7 · Book II</span>
+                          <span class="da-preview-stats" id="da-preview-stats"><b>18</b> highlights &nbsp;·&nbsp; <b>12</b> notes &nbsp;·&nbsp; <b>21</b> readers</span>
+                        </div>
+                        <div class="da-passage" id="da-passage">
+                          <p>According to the tradition, Gyges was a shepherd in the service of the king of Lydia; <mark class="hot-low">there was a great storm, and an earthquake made an opening in the earth</mark> at the place where he was feeding his flock. <mark class="hot-high">Amazed at the sight, he descended into the opening, where, among other marvels, he beheld a hollow brazen horse, having doors, at which he stooping and looking in saw a dead body of stature, as appeared to him, more than human, and having nothing on but a gold ring; this he took from the finger of the dead and reascended.</mark></p>
+                          <p>Suppose now that there were two such magic rings, and the just put on one of them and the unjust the other; <mark class="hot-mid">no man can be imagined to be of such an iron nature that he would stand fast in justice.</mark> No man would keep his hands off what was not his own when he could safely take what he liked out of the market.</p>
+                        </div>
+                        <div class="da-hotspot-key">
+                          <span class="da-key-item"><i class="k-high"></i>High engagement</span>
+                          <span class="da-key-item"><i class="k-mid"></i>Medium</span>
+                          <span class="da-key-item"><i class="k-low"></i>Light</span>
+                          <span class="da-key-item" style="color: var(--muted);">General areas where student highlights and notes cluster</span>
+                        </div>
                       </div>
-                      <div class="lm-progress-track">
-                        <div class="lm-progress-bar lm-bar-3"></div>
+                    </section>
+
+                    <!-- Reading report -->
+                    <section class="da-panel" style="margin-bottom: 0;">
+                      <div class="da-panel-head">
+                        <h2 class="da-panel-title">Reading report</h2>
+                        <span class="da-panel-sub">Objective mastery across 24 students</span>
                       </div>
-                    </div>
+
+                      <div class="da-obj-grid">
+                        <div class="da-obj-card">
+                          <div class="da-pie grasped"><span>88%</span></div>
+                          <p class="da-obj-name">Identify Thrasymachus' definition of justice</p>
+                          <span class="da-badge grasped">Grasped</span>
+                        </div>
+
+                        <div class="da-obj-card">
+                          <div class="da-pie developing"><span>71%</span></div>
+                          <p class="da-obj-name">Explain Glaucon's challenge to Socrates</p>
+                          <span class="da-badge developing">Developing</span>
+                        </div>
+
+                        <div class="da-obj-card">
+                          <div class="da-pie review"><span>46%</span></div>
+                          <p class="da-obj-name">Connect the city–soul analogy to individual virtue</p>
+                          <span class="da-badge review">Needs review</span>
+                        </div>
+                      </div>
+
+                      <div class="da-report-foot">
+                        <span class="da-report-summary"><b>16 of 24 students</b> demonstrated all three objectives</span>
+                        <a class="da-link" href="#">
+                          View student breakdown
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+                        </a>
+                      </div>
+                    </section>
+
                   </div>
                 </div>
                 
@@ -2806,7 +3425,7 @@ a.contact-value:hover {
           <!-- Team Member 4: Jyothsna Vellanki (Spans 1 column) -->
           <div class="team-card reveal">
             <div class="team-photo font-sans">
-              <img src="assets/team_jyothsna_v2.jpeg" alt="Jyothsna Vellanki">
+              <img src="assets/team_jyothsna_v3.png" alt="Jyothsna Vellanki">
             </div>
             <div class="team-body font-sans">
               <div>
@@ -3235,29 +3854,31 @@ document.addEventListener("DOMContentLoaded", () => {
         // Feature 3: Professor Analytics
         analyticsMockup.classList.add("active", "animate-metrics");
         
-        const completionVal = analyticsMockup.querySelector(".lm-val-1");
-        const durationVal = analyticsMockup.querySelector(".lm-val-2");
-        const highlightsVal = analyticsMockup.querySelector(".lm-val-3");
+        const durationVal = analyticsMockup.querySelector("#da-val-time");
+        const completionVal = analyticsMockup.querySelector(".da-ring-val");
+        const objectivesVal = analyticsMockup.querySelector("#da-val-objectives");
         
-        completionVal.textContent = "0%";
-        durationVal.textContent = "0%";
-        highlightsVal.textContent = "0%";
-        
-        animateValue(completionVal, 0, 92, 1800);
-        animateValue(durationVal, 0, 42, 1800);
-        animateValue(highlightsVal, 0, 80, 1800);
+        if (durationVal && completionVal && objectivesVal) {
+          durationVal.textContent = "0";
+          completionVal.textContent = "0%";
+          objectivesVal.textContent = "0";
+          
+          animateValue(durationVal, 0, 52, 1800, "");
+          animateValue(completionVal, 0, 92, 1800, "%");
+          animateValue(objectivesVal, 0, 2, 1800, "");
+        }
       }
     }, 50);
   };
 
   // Helper function to animate number counters
-  function animateValue(obj, start, end, duration) {
+  function animateValue(obj, start, end, duration, suffix = "%") {
     let startTimestamp = null;
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       const easeProgress = 1 - Math.pow(1 - progress, 3); // Ease out cubic
-      obj.textContent = Math.floor(easeProgress * (end - start) + start) + "%";
+      obj.textContent = Math.floor(easeProgress * (end - start) + start) + suffix;
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
@@ -3285,6 +3906,250 @@ document.addEventListener("DOMContentLoaded", () => {
     runTourAnimation(initialIndex);
   }
 
+  // --- Educator Analytics Dashboard Interactivity ---
+  const pagePreviewData = [
+    {
+      page: 1,
+      book: "Book I",
+      highlights: 12,
+      notes: 4,
+      readers: 24,
+      passage: `<p>I went down yesterday to the Piraeus with Glaucon the son of Ariston, that I might offer up my prayers to the goddess; and also because I wanted to see in what manner they would celebrate the festival...</p>
+                <p><mark class="hot-mid">When we had finished our prayers and viewed the spectacle, we turned in the direction of the city;</mark> and at that instant Polemarchus the son of Cephalus saw us from a distance...</p>`
+    },
+    {
+      page: 2,
+      book: "Book I",
+      highlights: 8,
+      notes: 2,
+      readers: 23,
+      passage: `<p>He sent his servant to run after us and bid us wait. The servant took hold of me by the cloak behind, and said: <mark class="hot-low">Polemarchus desires you to wait.</mark></p>
+                <p>I turned round, and asked him where his master was. There he is, said the youth, coming after you, if you will only wait.</p>`
+    },
+    {
+      page: 3,
+      book: "Book I",
+      highlights: 19,
+      notes: 9,
+      readers: 24,
+      passage: `<p><mark class="hot-high">"Moreover, I said, you are quite right; and I will answer Glaucon first."</mark> But can you persuade us, if we refuse to listen to you? he said. Certainly not, replied Glaucon.</p>
+                <p>Then we are not going to listen; of that you may be assured. <mark class="hot-mid">Let me explain the nature of this inquiry, for it is no light matter.</mark></p>`
+    },
+    {
+      page: 4,
+      book: "Book I",
+      highlights: 5,
+      notes: 1,
+      readers: 22,
+      passage: `<p>Cephalus was then a very old man, and I had not seen him for a long time. <mark class="hot-low">He was sitting on a cushioned chair, and had a garland on his head,</mark> for he had been sacrificing in the court.</p>
+                <p>We went in and sat down by him; there were some other chairs there. Cephalus was delighted to see me.</p>`
+    },
+    {
+      page: 5,
+      book: "Book I",
+      highlights: 14,
+      notes: 6,
+      readers: 24,
+      passage: `<p>What do you say of justice, Socrates? <mark class="hot-mid">Is it simply speaking the truth and paying your debts,</mark> or are these actions sometimes right and sometimes wrong?</p>
+                <p>For example, if a friend who has lent you weapons when in his right mind should ask for them when he is not, ought you to return them?</p>`
+    },
+    {
+      page: 6,
+      book: "Book I",
+      highlights: 20,
+      notes: 15,
+      readers: 23,
+      passage: `<p>Thrasymachus had frequently intended to interrupt us while we were talking, but had been prevented by those who wanted to hear the end. <mark class="hot-high">When we paused, he could no longer hold his peace; gathering himself up like a wild beast, he came at us as if he would tear us in pieces.</mark></p>`
+    },
+    {
+      page: 7,
+      book: "Book II",
+      highlights: 18,
+      notes: 12,
+      readers: 21,
+      passage: `<p>According to the tradition, Gyges was a shepherd in the service of the king of Lydia; <mark class="hot-low">there was a great storm, and an earthquake made an opening in the earth</mark> at the place where he was feeding his flock. <mark class="hot-high">Amazed at the sight, he descended into the opening, where, among other marvels, he beheld a hollow brazen horse, having doors, at which he stooping and looking in saw a dead body of stature, as appeared to him, more than human, and having nothing on but a gold ring; this he took from the finger of the dead and reascended.</mark></p>
+                <p>Suppose now that there were two such magic rings, and the just put on one of them and the unjust the other; <mark class="hot-mid">no man can be imagined to be of such an iron nature that he would stand fast in justice.</mark> No man would keep his hands off what was not his own when he could safely take what he liked out of the market.</p>`
+    },
+    {
+      page: 8,
+      book: "Book II",
+      highlights: 11,
+      notes: 3,
+      readers: 20,
+      passage: `<p>For all men believe in their hearts that injustice is far more profitable than justice. <mark class="hot-low">If anyone were to obtain this power of becoming invisible,</mark> and yet remained just, he would be thought a most wretched fool by those who knew of it.</p>`
+    },
+    {
+      page: 9,
+      book: "Book II",
+      highlights: 7,
+      notes: 2,
+      readers: 19,
+      passage: `<p>Then, Socrates, how can we choose justice over the greatest injustice? <mark class="hot-low">If we can be unjust and conceal our misdeeds,</mark> we shall fare like gods according to the poets.</p>`
+    },
+    {
+      page: 10,
+      book: "Book II",
+      highlights: 22,
+      notes: 14,
+      readers: 24,
+      passage: `<p><mark class="hot-high">I think that we should first make our investigation of justice in states,</mark> and then go on to find the counterpart in the individual, looking for the likeness of the greater in the less.</p>
+                <p><mark class="hot-mid">A state arises out of the needs of mankind; no one is self-sufficing,</mark> but all of us have many wants. Let us construct a state in theory from the beginning.</p>`
+    },
+    {
+      page: 11,
+      book: "Book II",
+      highlights: 15,
+      notes: 5,
+      readers: 22,
+      passage: `<p>We must have a division of labour, Socrates. <mark class="hot-mid">One man is a husbandman, another a builder, another a weaver.</mark> Will each perform his work for the common good, or for himself?</p>`
+    },
+    {
+      page: 12,
+      book: "Book II",
+      highlights: 6,
+      notes: 0,
+      readers: 18,
+      passage: `<p>Let us also consider the luxuries of life. <mark class="hot-low">We shall need perfumes, courtesans, and cakes,</mark> not to mention artists, musicians, and poets. This will require a larger territory, and we must go to war.</p>`
+    },
+    {
+      page: 13,
+      book: "Book II",
+      highlights: 10,
+      notes: 4,
+      readers: 18,
+      passage: `<p><mark class="hot-mid">Then the guardians of our state must be both spirited and philosophical,</mark> like well-bred dogs who are friendly to friends and fierce to strangers. <mark class="hot-low">How shall they be educated?</mark></p>`
+    }
+  ];
+
+  const daBars = document.querySelectorAll(".da-bar");
+  const daLabels = document.querySelectorAll(".da-bar-labels span");
+  const daScrubFill = document.querySelector(".da-scrub-fill");
+  const daHandle = document.querySelector(".da-handle");
+  const daChart = document.querySelector(".da-chart");
+  const daPreviewTitle = document.getElementById("da-preview-title");
+  const daPreviewStats = document.getElementById("da-preview-stats");
+  const daPassage = document.getElementById("da-passage");
+
+  let isDraggingScrubber = false;
+  let activePageIndex = 6; // Default is page 7 (index 6)
+
+  const updateActivePage = (index, instant = false) => {
+    if (index < 0 || index >= pagePreviewData.length) return;
+    activePageIndex = index;
+
+    // Update active classes on bars and labels
+    daBars.forEach((bar, i) => {
+      if (i === index) {
+        bar.classList.add("active");
+      } else {
+        bar.classList.remove("active");
+      }
+    });
+
+    daLabels.forEach((label, i) => {
+      if (i === index) {
+        label.classList.add("active");
+      } else {
+        label.classList.remove("active");
+      }
+    });
+
+    // Update slider position
+    const percentage = (index / 12) * 100;
+    if (instant) {
+      daScrubFill.style.transition = "none";
+      daHandle.style.transition = "none";
+    } else {
+      daScrubFill.style.transition = "width 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
+      daHandle.style.transition = "left 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
+    }
+    
+    daScrubFill.style.width = percentage + "%";
+    daHandle.style.left = percentage + "%";
+
+    // Update Preview Panel contents
+    const data = pagePreviewData[index];
+    if (daPreviewTitle) {
+      daPreviewTitle.textContent = `Page ${data.page} · ${data.book}`;
+    }
+    if (daPreviewStats) {
+      daPreviewStats.innerHTML = `<b>${data.highlights}</b> highlights &nbsp;·&nbsp; <b>${data.notes}</b> notes &nbsp;·&nbsp; <b>${data.readers}</b> readers`;
+    }
+    if (daPassage) {
+      daPassage.innerHTML = data.passage;
+    }
+  };
+
+  // Add click handlers for bars & labels
+  daBars.forEach((bar, index) => {
+    bar.addEventListener("click", () => updateActivePage(index));
+  });
+
+  daLabels.forEach((label, index) => {
+    label.addEventListener("click", () => updateActivePage(index));
+  });
+
+  // Scrubber Drag Event Handlers
+  const handleScrubberPointer = (clientX) => {
+    const rect = daChart.getBoundingClientRect();
+    let percentage = (clientX - rect.left) / rect.width;
+    percentage = Math.max(0, Math.min(1, percentage)); // Clamp between 0 and 1
+    
+    // Find closest page index (0 to 12)
+    const closestIndex = Math.round(percentage * 12);
+    if (closestIndex !== activePageIndex) {
+      updateActivePage(closestIndex, true);
+    }
+  };
+
+  const startDrag = (e) => {
+    isDraggingScrubber = true;
+    daHandle.style.cursor = "grabbing";
+    document.body.style.userSelect = "none";
+    
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    handleScrubberPointer(clientX);
+    e.preventDefault();
+  };
+
+  const doDrag = (e) => {
+    if (!isDraggingScrubber) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    handleScrubberPointer(clientX);
+  };
+
+  const stopDrag = () => {
+    if (!isDraggingScrubber) return;
+    isDraggingScrubber = false;
+    daHandle.style.cursor = "grab";
+    document.body.style.userSelect = "";
+    
+    // Restore transition
+    daScrubFill.style.transition = "";
+    daHandle.style.transition = "";
+  };
+
+  if (daHandle && daChart) {
+    daHandle.addEventListener("mousedown", startDrag);
+    daChart.addEventListener("mousedown", (e) => {
+      // Only drag if clicking the handle or track, not bars
+      if (e.target.classList.contains("da-bar") || e.target.closest(".da-bar-labels")) return;
+      startDrag(e);
+    });
+
+    document.addEventListener("mousemove", doDrag);
+    document.addEventListener("mouseup", stopDrag);
+
+    // Touch support for mobile devices
+    daHandle.addEventListener("touchstart", startDrag, { passive: false });
+    daChart.addEventListener("touchstart", (e) => {
+      if (e.target.classList.contains("da-bar") || e.target.closest(".da-bar-labels")) return;
+      startDrag(e);
+    }, { passive: false });
+    document.addEventListener("touchmove", doDrag, { passive: true });
+    document.addEventListener("touchend", stopDrag);
+  }
+
   // --- Fullscreen Modal Logic ---
   const tourViewport = document.querySelector(".platform .tour-viewport");
   const tourScreenWrap = document.querySelector(".platform .tour-screen-wrap");
@@ -3294,7 +4159,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Open modal when viewport is clicked
     tourViewport.addEventListener("click", (e) => {
       // Don't trigger if clicking inside the interactive features (symbols, etc)
-      if (e.target.closest(".interactive-symbol") || e.target.closest(".interactive-text") || e.target.closest(".interactive-metric") || e.target.closest(".modal-close-btn")) {
+      if (
+        e.target.closest(".interactive-symbol") ||
+        e.target.closest(".interactive-text") ||
+        e.target.closest(".interactive-metric") ||
+        e.target.closest(".modal-close-btn") ||
+        e.target.closest(".da-bar") ||
+        e.target.closest(".da-bar-labels") ||
+        e.target.closest(".da-handle") ||
+        e.target.closest(".da-link") ||
+        e.target.closest(".da-pill")
+      ) {
         return;
       }
       tourScreenWrap.classList.add("is-fullscreen");
